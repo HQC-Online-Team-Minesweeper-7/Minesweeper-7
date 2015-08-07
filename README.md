@@ -23,8 +23,6 @@ The name of your team is the same as the project you will start from.
 
 You need to refactor the project in order to **improve its quality** following the best practices learned in the course “[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)” and to **implement unit tests** that ensure that the code has correct behavior.
 
-# HQC-Online-Team-Minesweeper-7-
-
 Detailed Assignment Description
 -------------------------------
 
