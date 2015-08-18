@@ -5,9 +5,9 @@ using System.Text;
 
 // taiz igra sym ya igral na 8 godinki kato biah u lqlq stefka na komputera v bibliotekata
 
-namespace Igrata_Minichki
+namespace Minesweeper
 {
-    class Telerik
+    class Minesweeper
     {
         static char[,] matrica;
         static char[,] playerMatrix;
@@ -245,7 +245,7 @@ namespace Igrata_Minichki
         }
         static void Top()
         {
-            DaiRezultati(topListNames, topListCellsOpened);
+            Scoreboard(topListNames, topListCellsOpened);
         }
         static void DoMove(int row, int col)
         {//tuka sme na pyt da se premestim
@@ -316,7 +316,7 @@ namespace Igrata_Minichki
                 }
 
                 playerAddedToScoreboard = false;
-                DaiRezultati(topListNames, topListCellsOpened);
+                Scoreboard(topListNames, topListCellsOpened);
                 NovaIgra();
             }
             else
@@ -337,7 +337,7 @@ namespace Igrata_Minichki
                         topListCellsOpened.RemoveAt(5);
                         topListNames.RemoveAt(5);
                     }
-                    DaiRezultati(topListNames, topListCellsOpened);
+                    Scoreboard(topListNames, topListCellsOpened);
                     NovaIgra();
                     return;
                 }
@@ -346,7 +346,7 @@ namespace Igrata_Minichki
             }
         }
 
-        static void DaiRezultati(List<string> playerNames, List<int> openedCells)
+        static void Scoreboard(List<string> playerNames, List<int> openedCells)
         {
             Console.WriteLine();
             Console.WriteLine("Scoreboard:");

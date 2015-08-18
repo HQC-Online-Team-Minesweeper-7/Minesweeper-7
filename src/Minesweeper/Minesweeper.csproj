@@ -8,8 +8,8 @@
     <ProjectGuid>{9A136864-6002-44A6-9344-EE96DD773C7C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Minichkite</RootNamespace>
-    <AssemblyName>Minichkite</AssemblyName>
+    <RootNamespace>Minesweeper</RootNamespace>
+    <AssemblyName>Minesweeper</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -43,9 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Telerik.cs" />
+    <Compile Include="Minesweeper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ConsoleGame\" />
+    <Folder Include="GameModel\Exceptions\" />
+    <Folder Include="GameModel\Interfaces\" />
+    <Folder Include="GraphicGame\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
