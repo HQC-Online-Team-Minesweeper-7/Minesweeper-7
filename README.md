@@ -1,5 +1,7 @@
-High-Quality Programming Code – Team Projects
-=============================================
+ <p align="center"><a href="http://telerikacademy.com//"><img src="https://github.com/tddold/Telerik-Academy/blob/master/Programming%20with%20C%23/1.%20C%23%20Fundamentals%20I/Presentation/Telerik.png" /></a></p>
+ 
+-<h1 align="center">Online-Team-Minesweeper-7</h1>
+
 
 Overview
 --------
@@ -20,8 +22,6 @@ The project consists of one or more **source code files**, description and is pr
 The name of your team is the same as the project you will start from.
 
 You need to refactor the project in order to **improve its quality** following the best practices learned in the course “[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)” and to **implement unit tests** that ensure that the code has correct behavior.
-
-# HQC-Online-Team-Minesweeper-7-
 
 Detailed Assignment Description
 -------------------------------
