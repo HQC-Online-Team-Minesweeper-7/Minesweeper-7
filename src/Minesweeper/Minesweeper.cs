@@ -145,29 +145,15 @@ namespace Minesweeper
             string input = Console.ReadLine();
             input.Trim();
 
-            if (input == 
-                
-                "exit")
-           
+            if (input == "exit")
             {
                 Exit();
-
-
                 return;
-
-
             }
 
-            if (input 
-                
-                == 
-                
-                "restart")
+            if (input == "restart")
             {
-
                 NovaIgra();
-
-
                 return;
             }
 
@@ -203,7 +189,11 @@ namespace Minesweeper
                 int.TryParse(
                 input[2].ToString(),
                 out colInput);
-            if (!proverka) { Console.WriteLine("Illegal input!"); return; }
+            if (!proverka)
+            {
+                Console.WriteLine("Illegal input!");
+                return;
+            }
 
             DoMove(rowInput, colInput);
         }
