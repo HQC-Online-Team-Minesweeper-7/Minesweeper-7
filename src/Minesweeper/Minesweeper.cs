@@ -287,16 +287,19 @@ namespace Minesweeper
                         Console.Write("Please enter your name for the top scoreboard: ");
                         string igrach = Console.ReadLine();
                         topListNames.Insert(i, igrach);
+
                         if (emptyScoreboard || topListCellsOpened.Count == 6)
                         {
                             topListCellsOpened.RemoveAt(topListCellsOpened.Count - 1);
                             topListNames.RemoveAt(topListNames.Count - 1);
                             emptyScoreboard = false;
                         }
+
                         playerAddedToScoreboard = true;
                         break;
                     }
                 }
+
                 if (!playerAddedToScoreboard && topListCellsOpened.Count < 5)
                 {
                     topListCellsOpened.Add(cellsOpened);
@@ -327,10 +330,12 @@ namespace Minesweeper
                         topListCellsOpened.RemoveAt(5);
                         topListNames.RemoveAt(5);
                     }
+
                     Scoreboard(topListNames, topListCellsOpened);
                     NovaIgra();
                     return;
                 }
+
                 playerMatrix[row, col] = matrica[row, col];
                 PrintMatrix(playerMatrix);
             }
@@ -347,7 +352,7 @@ namespace Minesweeper
             }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             NovaIgra();
         }
