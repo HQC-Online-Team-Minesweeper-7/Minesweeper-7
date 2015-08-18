@@ -43,12 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleGame\ConsoleMinesweeperGame.cs" />
+    <Compile Include="GameModel\Interfaces\IScoreBoard.cs" />
+    <Compile Include="GameModel\Scoreboard.cs" />
     <Compile Include="Minesweeper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ConsoleGame\" />
     <Folder Include="GameModel\Exceptions\" />
-    <Folder Include="GameModel\Interfaces\" />
     <Folder Include="GraphicGame\" />
     <Folder Include="Properties\" />
   </ItemGroup>

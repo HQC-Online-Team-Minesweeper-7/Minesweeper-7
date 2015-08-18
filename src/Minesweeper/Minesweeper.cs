@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Minesweeper.ConsoleGame;
+using Minesweeper.GameModel;
 // taiz igra sym ya igral na 8 godinki kato biah u lqlq stefka na komputera v bibliotekata
 
 namespace Minesweeper
 {
-    class Minesweeper
+    public class Minesweeper
     {
         static char[,] matrica;
         static char[,] playerMatrix;
@@ -97,8 +99,8 @@ namespace Minesweeper
         static int GetNeighbourMinesCount(char[,] matrica, int row, int col)
         {
             int minesCount = 0;
-            int[] rowPositions = {-1, -1, -1, 0, 1, 1, 1, 0 };
-            int[] colPositions = {-1, 0, 1, 1, 1, 0, -1, -1 };
+            int[] rowPositions = { -1, -1, -1, 0, 1, 1, 1, 0 };
+            int[] colPositions = { -1, 0, 1, 1, 1, 0, -1, -1 };
             int currentNeighbourRow = 0;
             int currentNeighbourCol = 0;
 
@@ -110,37 +112,24 @@ namespace Minesweeper
                 currentNeighbourCol = col + colPositions[position];
 
 
-                if (currentNeighbourRow < 0 
-                    
-                    || 
-                    
-                    currentNeighbourRow >= matrica.GetLength(0) 
-                    
-                    ||
-
-
-                    currentNeighbourCol < 0 
-                    
-                    ||
-                    
-                    currentNeighbourCol >= matrica.GetLength(1))
+                if (currentNeighbourRow < 0 || currentNeighbourRow >= matrica.GetLength(0) ||
+                    currentNeighbourCol < 0 || currentNeighbourCol >= matrica.GetLength(1))
                 {
                     continue;
                 }
 
-                if (matrica[currentNeighbourRow, 
-                    currentNeighbourCol] == '*')
+                if (matrica[currentNeighbourRow, currentNeighbourCol] == '*')
                 {
-
-                 
                     minesCount++;
                 }
 
             }
+
             return minesCount;
         }
-        static void procheti()
-        {   Console.WriteLine();
+        static void Commands()
+        {
+            Console.WriteLine();
             Console.Write("Enter row and column: ");
             string input = Console.ReadLine();
             input.Trim();
@@ -185,7 +174,7 @@ namespace Minesweeper
             }
 
             int colInput;
-            proverka = 
+            proverka =
                 int.TryParse(
                 input[2].ToString(),
                 out colInput);
@@ -220,17 +209,17 @@ namespace Minesweeper
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Welcome to the game “Minesweeper”. Try to reveal all cells without mines. " +
-                              "Use 'top' to view the scoreboard, 'restart' to start a new game and 'exit' " + 
+                              "Use 'top' to view the scoreboard, 'restart' to start a new game and 'exit' " +
                               "to quit the game.");
             Console.WriteLine();
 
             PrintMatrix(playerMatrix);
 
             while (gameInProgress)
-                //abe typo izglejda ama ako napravq metod shte zaema mn mqsto
-                //kakvo pravq? -cheta dokat moga
+            //abe typo izglejda ama ako napravq metod shte zaema mn mqsto
+            //kakvo pravq? -cheta dokat moga
             {
-                procheti();
+                Commands();
             }
         }
         static void Top()
@@ -283,7 +272,7 @@ namespace Minesweeper
                     if (cellsOpened >= topListCellsOpened[i])
                     {
                         topListCellsOpened.Insert(i, cellsOpened);
-                       
+
                         Console.Write("Please enter your name for the top scoreboard: ");
                         string igrach = Console.ReadLine();
                         topListNames.Insert(i, igrach);
@@ -345,6 +334,7 @@ namespace Minesweeper
         {
             Console.WriteLine();
             Console.WriteLine("Scoreboard:");
+                       
             for (int i = 0; i < playerNames.Count; i++)
             {
                 Console.WriteLine("{0}. {1} --> {2} Cells", i + 1, playerNames[i], openedCells[i]);
