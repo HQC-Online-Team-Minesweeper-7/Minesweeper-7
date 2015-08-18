@@ -5,6 +5,7 @@ using System.Text;
 
 using Minesweeper.ConsoleGame;
 using Minesweeper.GameModel;
+using Minesweeper.Utils;
 // taiz igra sym ya igral na 8 godinki kato biah u lqlq stefka na komputera v bibliotekata
 
 namespace Minesweeper
@@ -43,90 +44,10 @@ namespace Minesweeper
 
         static char[,] GenerateMinesweeperMatrix()
         {
-            char[,] matrix = new char[5, 10];
-
-            Random random = new Random();
-            int minesToInsert = 15;
-
-            while (minesToInsert > 0)
-            {
-                for (int i = 0; i < matrix.GetLength(0); i++)
-                {
-                    if (minesToInsert == 0)
-                    {
-                        break;
-                    }
-
-                    for (int j = 0; j < matrix.GetLength(1); j++)
-                    {
-                        if (minesToInsert == 0)
-                        {
-                            break;
-
-
-
-                        }
-
-                        int randomNumber = random.Next(0, 3);
-                        if (randomNumber == 1)
-                        {
-                            matrix[i, j] = '*';
-                            minesToInsert--;
-                        }
-                    }
-                }
-            }
-
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    if (matrix[i, j] == '*')
-                    {
-                        continue;
-                    }
-
-
-
-                    int neighbourMinesCount = GetNeighbourMinesCount(matrix, i, j);
-                    matrix[i, j] = (neighbourMinesCount.ToString()[0]);
-                }
-            }
-
-            return matrix;
+           
         }
 
-        static int GetNeighbourMinesCount(char[,] matrica, int row, int col)
-        {
-            int minesCount = 0;
-            int[] rowPositions = { -1, -1, -1, 0, 1, 1, 1, 0 };
-            int[] colPositions = { -1, 0, 1, 1, 1, 0, -1, -1 };
-            int currentNeighbourRow = 0;
-            int currentNeighbourCol = 0;
-
-            for (int position = 0; position < 8; position++)
-            {
-
-                currentNeighbourRow = row + rowPositions[position];
-
-                currentNeighbourCol = col + colPositions[position];
-
-
-                if (currentNeighbourRow < 0 || currentNeighbourRow >= matrica.GetLength(0) ||
-                    currentNeighbourCol < 0 || currentNeighbourCol >= matrica.GetLength(1))
-                {
-                    continue;
-                }
-
-                if (matrica[currentNeighbourRow, currentNeighbourCol] == '*')
-                {
-                    minesCount++;
-                }
-
-            }
-
-            return minesCount;
-        }
+        
         static void Commands()
         {
             Console.WriteLine();
@@ -190,38 +111,7 @@ namespace Minesweeper
         {
             Environment.Exit(1);
         }
-        static void NovaIgra()
-        {
-            gameInProgress = true;
-            cellsOpened = 0;
 
-            playerMatrix = new char[5, 10];
-            matrica = new char[5, 10];
-
-            matrica = GenerateMinesweeperMatrix();
-            for (int i = 0; i < playerMatrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < playerMatrix.GetLength(1); j++)
-                {
-                    playerMatrix[i, j] = '?';
-                }
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("Welcome to the game “Minesweeper”. Try to reveal all cells without mines. " +
-                              "Use 'top' to view the scoreboard, 'restart' to start a new game and 'exit' " +
-                              "to quit the game.");
-            Console.WriteLine();
-
-            PrintMatrix(playerMatrix);
-
-            while (gameInProgress)
-            //abe typo izglejda ama ako napravq metod shte zaema mn mqsto
-            //kakvo pravq? -cheta dokat moga
-            {
-                Commands();
-            }
-        }
         static void Top()
         {
             Scoreboard(topListNames, topListCellsOpened);
@@ -344,6 +234,10 @@ namespace Minesweeper
 
         static void Main()
         {
+            var consoleRenderer = new ConsoleRenderer();
+
+            var engine = new ConsoleMinesweeperEngine(consoleRenderer);
+            engine.Start();
             NovaIgra();
         }
     }

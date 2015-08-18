@@ -1,32 +1,32 @@
-﻿namespace Minesweeper.GameModel
+﻿using Minesweeper.GameModel.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Minesweeper.GameModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    using GameModel.Interfaces;
-
-    public class Scoreboard : IComparable, IScoreBoard
+    class ScoreBoard
     {
-        public Scoreboard(string playerName, int score)
+        private ICollection<Player> players;
+        private IRenderer renderer;
+
+        public ScoreBoard(IRenderer renderer)
         {
-            this.PlayerName = playerName;
-            this.Score = score;
+            this.renderer = renderer;
         }
 
-        public string PlayerName { get; set; }
-
-        public int Score { get; set; }
-
-        public int CompareTo(object obj)
+        public void AddPlayer(Player player)
         {
-            if (!(obj is Scoreboard))
-            {
-                throw new ArgumentException("Compare Object is not ScoreRecord!");
-            }
+            players.Add(player);
+        }
 
-            return -1 * this.Score.CompareTo(((Scoreboard)obj).Score);
+        public void Print()
+        {
+            foreach (var player in players)
+            {
+                renderer.WriteLine(player.ToString());
+            }
         }
     }
 }
