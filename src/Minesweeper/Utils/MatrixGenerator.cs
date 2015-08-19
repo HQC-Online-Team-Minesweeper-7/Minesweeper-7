@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Minesweeper.Utils
+﻿namespace Minesweeper.Utils
 {
     static class MatrixGenerator
     {
-        public static char[,] GenerateMatrix(char[,] matrix,char symbolToSkip)
+        public static char[,] GenerateMatrix(char[,] matrix, char symbolToSkip)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -26,7 +21,7 @@ namespace Minesweeper.Utils
             return matrix;
         }
 
-        private static int GetNeighbourMinesCount(char[,] matrica, int row, int col)
+        private static int GetNeighbourMinesCount(char[,] matrix, int row, int col)
         {
             int minesCount = 0;
             int[] rowPositions = { -1, -1, -1, 0, 1, 1, 1, 0 };
@@ -42,17 +37,16 @@ namespace Minesweeper.Utils
                 currentNeighbourCol = col + colPositions[position];
 
 
-                if (currentNeighbourRow < 0 || currentNeighbourRow >= matrica.GetLength(0) ||
-                    currentNeighbourCol < 0 || currentNeighbourCol >= matrica.GetLength(1))
+                if (currentNeighbourRow < 0 || currentNeighbourRow >= matrix.GetLength(0) ||
+                    currentNeighbourCol < 0 || currentNeighbourCol >= matrix.GetLength(1))
                 {
                     continue;
                 }
 
-                if (matrica[currentNeighbourRow, currentNeighbourCol] == '*')
+                if (matrix[currentNeighbourRow, currentNeighbourCol] == Constants.MinesSymbol)
                 {
                     minesCount++;
                 }
-
             }
 
             return minesCount;

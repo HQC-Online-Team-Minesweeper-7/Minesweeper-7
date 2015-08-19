@@ -1,14 +1,11 @@
-﻿using Minesweeper.GameModel.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Minesweeper.GameModel
+﻿namespace Minesweeper.GameModel
 {
+    using System.Collections.Generic;
+
+    using GameModel.Interfaces;
     class ScoreBoard
     {
-        private ICollection<Player> players;
+        private IList<Player> players;
         private IRenderer renderer;
 
         public ScoreBoard(IRenderer renderer)
@@ -19,6 +16,21 @@ namespace Minesweeper.GameModel
         public void AddPlayer(Player player)
         {
             players.Add(player);
+        }
+
+        public void RemovePlayer(int position)
+        {
+            this.players.RemoveAt(position);
+        }
+
+        public IList<Player> GetPlayers()
+        {
+            return this.players;
+        }
+
+        public int TopListCount()
+        {
+            return this.players.Count;
         }
 
         public void Print()

@@ -1,18 +1,16 @@
-﻿using Minesweeper.GameModel.Interfaces;
-using Minesweeper.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Minesweeper.ConsoleGame
+﻿namespace Minesweeper.ConsoleGame
 {
+    using System;
+
+    using GameModel.Interfaces;
+    using Utils;
     class MinesweeperField : IField
     {
         private char[,] field;
 
         public void Draw(IRenderer renderer)
         {
+            // TODO
             throw new NotImplementedException();
         }
 
@@ -38,6 +36,7 @@ namespace Minesweeper.ConsoleGame
                         }
 
                         int randomNumber = random.Next(0, 3);
+
                         if (randomNumber == 1)
                         {
                             this.field[i, j] = '*';
@@ -52,6 +51,7 @@ namespace Minesweeper.ConsoleGame
 
         public void MakeMove(int row, int col)
         {
+            // TODO
             throw new NotImplementedException();
         }
     }
