@@ -43,10 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleGame\ConsoleMinesweeperGame.cs" />
-    <Compile Include="GameModel\Interfaces\IScoreBoard.cs" />
-    <Compile Include="GameModel\Scoreboard.cs" />
-    <Compile Include="Minesweeper.cs" />
+    <Compile Include="ConsoleGame\ConsoleMinesweeperEngine.cs" />
+    <Compile Include="ConsoleGame\ConsoleRenderer.cs" />
+    <Compile Include="ConsoleGame\MinesweeperField.cs" />
+    <Compile Include="GameModel\Interfaces\IField.cs" />
+    <Compile Include="GameModel\Interfaces\IRenderer.cs" />
+    <Compile Include="GameModel\Interfaces\IPlayer.cs" />
+    <Compile Include="GameModel\Player.cs" />
+    <Compile Include="GameModel\ScoreBoard.cs" />
+    <Compile Include="MinesweeperEntryPoint.cs" />
+    <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\MatrixGenerator.cs" />
+    <Compile Include="Utils\MinesGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GameModel\Exceptions\" />
