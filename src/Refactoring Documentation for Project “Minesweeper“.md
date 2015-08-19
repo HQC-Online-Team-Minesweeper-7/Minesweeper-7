@@ -6,6 +6,10 @@
 	-   Renamed the namespace `Igrata_Minichki` to `Minesweeper`. - T Dakov
 	-   Renamed the main class `Telerik` to `Minesweeper`. - T Dakov
 	-   Renamed the method `DaiRezultati` to `Scoreboard`. - T Dakov
+	- 	Renamed the method `procheti` to `Commands`. T Dakov
+	-	Formatted code - if, for, while - T Dakov
+	-	Create `IScoreBoard.cs` - T Dakov
+	-	Create `Scoreboard.cs` - T Dakov
 	-   Extracted each class in a separate file with a good name: `GameMinesweeper.cs`, `Dashboard.cs`, `Panel.cs`, `Commands.cs`, `Person.cs`.
 	-   …
 2.  Reformatted the source code:
