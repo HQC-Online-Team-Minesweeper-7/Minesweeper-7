@@ -10,5 +10,6 @@
         public static int MatrixRow = 5;
         public static int MatrixColumn = 10;
         public static int MaxScore = 35;
+        public static int MinesToInsert = 15;
     }
 }

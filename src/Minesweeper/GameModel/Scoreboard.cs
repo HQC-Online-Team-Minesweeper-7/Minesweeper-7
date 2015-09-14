@@ -32,7 +32,14 @@
 
         public int TopListCount()
         {
-            return this.players.Count;
+            if (players != null)
+            {
+                return this.players.Count;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public void Print()
