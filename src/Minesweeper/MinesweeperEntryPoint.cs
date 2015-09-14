@@ -9,6 +9,7 @@
             var consoleRenderer = new ConsoleRenderer();
 
             var engine = new ConsoleMinesweeperEngine(consoleRenderer);
+
             engine.Start();
         }
     }

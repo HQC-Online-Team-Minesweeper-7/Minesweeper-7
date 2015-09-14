@@ -3,6 +3,8 @@
     using System.Collections.Generic;
 
     using GameModel.Interfaces;
+    using System;
+
     class ScoreBoard
     {
         private IList<Player> players;
@@ -35,9 +37,15 @@
 
         public void Print()
         {
-            foreach (var player in players)
+            Console.WriteLine();
+            Console.WriteLine("Scoreboard:");
+
+            if (players != null)
             {
-                renderer.WriteLine(player.ToString());
+                foreach (var player in players)
+                {
+                    renderer.WriteLine(player.ToString());
+                }
             }
         }
     }
