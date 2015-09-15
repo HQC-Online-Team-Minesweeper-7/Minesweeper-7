@@ -11,7 +11,7 @@ namespace Minesweeper.Utils
         {            
 
             Random random = new Random();
-            int minesToInsert = 15;
+            int minesToInsert = Constants.MinesToInsert;
 
             while (minesToInsert > 0)
             {
@@ -32,7 +32,7 @@ namespace Minesweeper.Utils
                         int randomNumber = random.Next(0, 3);
                         if (randomNumber == 1)
                         {
-                            matrix[i, j] = '*';
+                            matrix[i, j] = Constants.MinesSymbol;
                             minesToInsert--;
                         }
                     }

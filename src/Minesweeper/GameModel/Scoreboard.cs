@@ -9,6 +9,13 @@
     {
         private IList<Player> players;
         private IRenderer renderer;
+        private List<string> topListNames = new List<string>();
+        private List<int> topListCellsOpened = new List<int>();
+
+        public ScoreBoard()
+        {
+            players = new List<Player>();
+        }
 
         public ScoreBoard(IRenderer renderer)
         {
@@ -17,6 +24,18 @@
 
         public void AddPlayer(Player player)
         {
+            if (players == null)
+            {
+                players = new List<Player>();
+            }
+
+            if (topListCellsOpened.Count == 0)
+            {
+                topListCellsOpened.Add(new int());
+                topListNames.Add(String.Empty);
+            }
+            //Console.WriteLine(player.Place);
+            player.Place++;
             players.Add(player);
         }
 

@@ -39,7 +39,7 @@
             this.matrix = new char[Constants.MatrixRow, Constants.MatrixColumn];
 
             matrix = MinesGenerator.GenerateMinesweeperInMatrix(matrix, minesSimbol: Constants.MinesSymbol);
-            
+
             matrix = MatrixGenerator.GenerateMatrix(matrix, symbolToSkip: Constants.MinesSymbol);
             for (int i = 0; i < playerMatrix.GetLength(0); i++)
             {
@@ -147,18 +147,31 @@
 
                 if (scoreBoard.TopListCount() == 0)
                 {
-                    scoreBoard.AddPlayer(new Player(String.Empty, new int()));
+                    var newPlayer = new Player(String.Empty, new int());
+                    scoreBoard.AddPlayer(newPlayer);
+                    topList.Add(newPlayer);
+                    emptyScoreboard = false;
+                    //gameInProgress = true;
+
                 }
 
                 foreach (var player in topList)
                 {
                     if (cellsOpened >= player.Score)
                     {
+                        if (scoreBoard.TopListCount() != 0)
+                        {
+                            player.Place++;
+                            scoreBoard.AddPlayer(player);
+                        }
+
                         player.Score = cellsOpened;
 
                         renderer.Write("Please enter your name for the top scoreboard: ");
                         string playerName = Console.ReadLine();
+
                         player.Name = playerName;
+                        
 
                         if (emptyScoreboard || scoreBoard.TopListCount() == 6)
                         {
@@ -167,6 +180,7 @@
                         }
 
                         playerAddedToScoreboard = true;
+                        gameInProgress = true;
                         break;
                     }
                 }
