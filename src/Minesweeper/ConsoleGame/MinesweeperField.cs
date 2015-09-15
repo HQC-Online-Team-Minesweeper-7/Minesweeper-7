@@ -4,6 +4,7 @@
 
     using GameModel.Interfaces;
     using Utils;
+
     class MinesweeperField : IField
     {
         private char[,] field;
@@ -17,7 +18,7 @@
         public void GenerateField()
         {
             Random random = new Random();
-            int minesToInsert = 15;
+            int minesToInsert = Constants.MinesToInsert;
 
             while (minesToInsert > 0)
             {
@@ -39,7 +40,7 @@
 
                         if (randomNumber == 1)
                         {
-                            this.field[i, j] = '*';
+                            this.field[i, j] = Constants.MinesSymbol;
                             minesToInsert--;
                         }
                     }

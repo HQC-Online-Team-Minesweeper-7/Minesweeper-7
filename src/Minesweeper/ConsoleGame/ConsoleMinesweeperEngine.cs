@@ -38,13 +38,14 @@
             this.playerMatrix = new char[Constants.MatrixRow, Constants.MatrixColumn];
             this.matrix = new char[Constants.MatrixRow, Constants.MatrixColumn];
 
-
+            matrix = MinesGenerator.GenerateMinesweeperInMatrix(matrix, minesSimbol: Constants.MinesSymbol);
+            
             matrix = MatrixGenerator.GenerateMatrix(matrix, symbolToSkip: Constants.MinesSymbol);
             for (int i = 0; i < playerMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < playerMatrix.GetLength(1); j++)
                 {
-                    playerMatrix[i, j] = '?';
+                    playerMatrix[i, j] = Constants.Symbol;
                 }
             }
             renderer.WriteLine(String.Empty);
@@ -188,7 +189,7 @@
             else
             {
                 cellsOpened++;
-                if (cellsOpened == 35)
+                if (cellsOpened == Constants.MaxScore)
                 {
                     PrintMatrix(matrix);
                     renderer.WriteLine("Congratulations! You revealed all cells without mines!");
