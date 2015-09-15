@@ -36,7 +36,7 @@
             }
             //Console.WriteLine(player.Place);
             player.Place++;
-            players.Add(player);
+            players.Add(player);            
         }
 
         public void RemovePlayer(int position)

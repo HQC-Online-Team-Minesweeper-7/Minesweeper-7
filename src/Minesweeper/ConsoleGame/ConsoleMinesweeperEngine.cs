@@ -154,16 +154,21 @@
                     //gameInProgress = true;
 
                 }
+                else
+                {
+                    var newPlayer = new Player(String.Empty, new int());
+                    newPlayer.Place = topList.Count;
+                    scoreBoard.AddPlayer(newPlayer);
+                    emptyScoreboard = false;
+                    topList.Add(newPlayer);
+
+                    //player.Place++;
+                }
 
                 foreach (var player in topList)
                 {
                     if (cellsOpened >= player.Score)
                     {
-                        if (scoreBoard.TopListCount() != 0)
-                        {
-                            player.Place++;
-                            scoreBoard.AddPlayer(player);
-                        }
 
                         player.Score = cellsOpened;
 
@@ -171,7 +176,6 @@
                         string playerName = Console.ReadLine();
 
                         player.Name = playerName;
-                        
 
                         if (emptyScoreboard || scoreBoard.TopListCount() == 6)
                         {
