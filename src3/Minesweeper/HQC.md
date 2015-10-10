@@ -179,12 +179,94 @@ if (currentNeighbourRow < 0
 
 ```
 
+>   Before
+```
+    if (input ==
+
+                "exit")
+
+            {
+                Exit();
+
+
+                return;
+
+
+            }
+```
+
+>   After
+```
+      if (input == "exit")
+            {
+                Exit();
+                return;
+            }
+```
+
+>   Befor
+```
+     if (input
+
+                ==
+
+                "restart")
+            {
+
+                Start();
+
+
+                return;
+            }
+```
+
+>   After
+```
+      if (input == "restart")
+            {
+                Start();
+                return;
+            }
+```
+
+>   Before
+```
+     proverka =
+                int.TryParse(
+                input[2].ToString(),
+                out colInput);
+            if (!proverka) { Console.WriteLine("Illegal input!"); return; }
+```
+
+>   After
+
+```
+     proverka = int.TryParse(input[2].ToString(), out colInput);
+
+            if (!proverka)
+            {
+                Console.WriteLine("Illegal input!"); return;
+            }
+```
+
+>   Before
+```
+
+```
+
+>   After
+
+```
+
+```
+
 *   Formatted the curly braces { and } according to the best practices for the C# language.
 *   Put { and } after all conditionals and loops (when missing).
 *   Character casing: variables and fields made camelCase; types and methods made PascalCase.
 *   Formatted all other elements of the source code according to the best practices introduced in the course “High-Quality Programming Code”.
 …
 ### Renamed variables:
+*   In class ConsoleMineswiperEngine: matrica to matrix
 *   In class Fifteen: number to numberOfMoves.
 *   In Main(string\[\] args): g to gameFifteen.
 *   Introduced constants:
@@ -197,5 +279,5 @@ if (currentNeighbourRow < 0
 
 ### Renamed methods
 *   Rename method NovaIgra() to Start()
-*   Rename method DaiRezultati() to ScoreBoard()
+*   Rename method DaiRezultati() to Scoreboard()
 *   Renamed the method procheti to Commands

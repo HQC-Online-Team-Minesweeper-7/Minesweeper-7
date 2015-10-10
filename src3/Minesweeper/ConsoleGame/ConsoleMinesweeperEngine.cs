@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Minesweeper.ConsoleGame
+﻿namespace Minesweeper.ConsoleGame
 {
+    using System;
+    using System.Collections.Generic;
+
     internal static class ConsoleMinesweeperEngine
     {
-        static char[,] matrica;
+        static char[,] matrix;
         static char[,] playerMatrix;
         static bool gameInProgress;
         static bool emptyScoreboard = true;
@@ -119,36 +117,22 @@ namespace Minesweeper.ConsoleGame
             return minesCount;
         }
 
-        static void procheti()
+        static void Commands()
         {
             Console.WriteLine();
             Console.Write("Enter row and column: ");
             string input = Console.ReadLine();
             input.Trim();
 
-            if (input ==
-
-                "exit")
-
+            if (input == "exit")
             {
                 Exit();
-
-
                 return;
-
-
             }
 
-            if (input
-
-                ==
-
-                "restart")
+            if (input == "restart")
             {
-
                 Start();
-
-
                 return;
             }
 
@@ -173,6 +157,7 @@ namespace Minesweeper.ConsoleGame
             bool proverka;
             int rowInput;
             proverka = int.TryParse(input[0].ToString(), out rowInput);
+
             if (!proverka)
             {
                 Console.WriteLine("Illegal input!");
@@ -180,11 +165,12 @@ namespace Minesweeper.ConsoleGame
             }
 
             int colInput;
-            proverka =
-                int.TryParse(
-                input[2].ToString(),
-                out colInput);
-            if (!proverka) { Console.WriteLine("Illegal input!"); return; }
+            proverka = int.TryParse(input[2].ToString(), out colInput);
+
+            if (!proverka)
+            {
+                Console.WriteLine("Illegal input!"); return;
+            }
 
             DoMove(rowInput, colInput);
         }
@@ -199,9 +185,9 @@ namespace Minesweeper.ConsoleGame
             cellsOpened = 0;
 
             playerMatrix = new char[5, 10];
-            matrica = new char[5, 10];
+            matrix = new char[5, 10];
 
-            matrica = GenerateMinesweeperMatrix();
+            matrix = GenerateMinesweeperMatrix();
             for (int i = 0; i < playerMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < playerMatrix.GetLength(1); j++)
@@ -222,7 +208,7 @@ namespace Minesweeper.ConsoleGame
             //abe typo izglejda ama ako napravq metod shte zaema mn mqsto
             //kakvo pravq? -cheta dokat moga
             {
-                procheti();
+                Commands();
             }
         }
         static void Top()
@@ -239,13 +225,13 @@ namespace Minesweeper.ConsoleGame
                 return;
             }
 
-            if (matrica[row, col] == '*')
+            if (matrix[row, col] == '*')
             {
-                for (int i = 0; i < matrica.GetLength(0); i++)
+                for (int i = 0; i < matrix.GetLength(0); i++)
                 {
-                    for (int j = 0; j < matrica.GetLength(1); j++)
+                    for (int j = 0; j < matrix.GetLength(1); j++)
                     {
-                        if (matrica[i, j] == '*')
+                        if (matrix[i, j] == '*')
                         {
                             playerMatrix[i, j] = '*';
                             continue;
@@ -306,7 +292,7 @@ namespace Minesweeper.ConsoleGame
                 cellsOpened++;
                 if (cellsOpened == 35)
                 {
-                    PrintMatrix(matrica);
+                    PrintMatrix(matrix);
                     Console.WriteLine("Congratulations! You revealed all cells without mines!");
                     gameInProgress = false;
                     Console.Write("Please enter your name for the top scoreboard: ");
@@ -323,7 +309,7 @@ namespace Minesweeper.ConsoleGame
                     Start();
                     return;
                 }
-                playerMatrix[row, col] = matrica[row, col];
+                playerMatrix[row, col] = matrix[row, col];
                 PrintMatrix(playerMatrix);
             }
         }
