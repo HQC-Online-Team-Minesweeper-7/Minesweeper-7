@@ -21,34 +21,34 @@
         //{
         //    char[,] matrix = new char[5, 10];
 
-            //var random = new Random();
-            //int minesToInsert = 15;
+        //var random = new Random();
+        //int minesToInsert = 15;
 
-            //while (minesToInsert > 0)
-            //{
-            //    for (int i = 0; i < matrix.GetLength(0); i++)
-            //    {
-            //        if (minesToInsert == 0)
-            //        {
-            //            break;
-            //        }
+        //while (minesToInsert > 0)
+        //{
+        //    for (int i = 0; i < matrix.GetLength(0); i++)
+        //    {
+        //        if (minesToInsert == 0)
+        //        {
+        //            break;
+        //        }
 
-            //        for (int j = 0; j < matrix.GetLength(1); j++)
-            //        {
-            //            if (minesToInsert == 0)
-            //            {
-            //                break;
-            //            }
+        //        for (int j = 0; j < matrix.GetLength(1); j++)
+        //        {
+        //            if (minesToInsert == 0)
+        //            {
+        //                break;
+        //            }
 
-            //            int randomNumber = random.Next(0, 3);
-            //            if (randomNumber == 1)
-            //            {
-            //                matrix[i, j] = '*';
-            //                minesToInsert--;
-            //            }
-            //        }
-            //    }
-            //}
+        //            int randomNumber = random.Next(0, 3);
+        //            if (randomNumber == 1)
+        //            {
+        //                matrix[i, j] = '*';
+        //                minesToInsert--;
+        //            }
+        //        }
+        //    }
+        //}
 
         //    for (int i = 0; i < matrix.GetLength(0); i++)
         //    {
@@ -133,26 +133,13 @@
 
             int rowInput = CheckInputValue(input, 0);
 
-            int colInput = CheckInputValue(input, 2);            
+            int colInput = CheckInputValue(input, 2);
 
             MakeMove(rowInput, colInput);
         }
 
-        private static int CheckInputValue(string input, int position)
-        {
-            int result;
-            bool isTrue = int.TryParse(input[position].ToString(), out result);
 
-            if (!isTrue)
-            {
-                Console.WriteLine("Illegal input!");
-                Commands();
-            }
-
-            return result;
-        }
-
-            static void Exit()
+        static void Exit()
         {
             Environment.Exit(1);
         }
@@ -166,6 +153,8 @@
             matrix = new char[Constants.MatrixRow, Constants.MatrixColumn];
 
             matrix = MinesGenerator.GenerareMinesweeperInMatrix(matrix);
+            matrix = MatrixGenerator.GenerateMatrix(matrix);
+
             for (int i = 0; i < playerMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < playerMatrix.GetLength(1); j++)
@@ -183,7 +172,7 @@
             PrintMatrix(playerMatrix);
 
             while (gameInProgress)
-            {
+           {
                 Commands();
             }
         }
@@ -223,7 +212,7 @@
                 PrintMatrix(playerMatrix);
                 gameInProgress = false;
 
-                Console.WriteLine();                
+                Console.WriteLine();
                 Console.WriteLine("Booooom! You were killed by a mine. You revealed {0} cells without mines.", cellsOpened);
 
                 if (topListCellsOpened.Count == 0)
@@ -240,7 +229,9 @@
 
                         Console.Write("Please enter your name for the top scoreboard: ");
                         string igrach = Console.ReadLine();
+
                         topListNames.Insert(i, igrach);
+
                         if (emptyScoreboard || topListCellsOpened.Count == 6)
                         {
                             topListCellsOpened.RemoveAt(topListCellsOpened.Count - 1);
@@ -300,6 +291,22 @@
                 Console.WriteLine();
             }
         }
+
+        private static int CheckInputValue(string input, int position)
+        {
+            int result;
+            bool isTrue = int.TryParse(input[position].ToString(), out result);
+
+            if (!isTrue || (position == 0 && result >= Constants.MatrixRow))
+            {
+                Console.WriteLine("Illegal input!");
+                Commands();
+            }
+
+
+            return result;
+        }
+
 
         private static void PrintMatrix(char[,] matrix)
         {
