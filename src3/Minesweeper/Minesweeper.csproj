@@ -58,11 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleGame\ConsoleRender.cs" />
     <Compile Include="GameModel\Board\Board.cs" />
     <Compile Include="GameModel\Board\BoardGenerator.cs" />
     <Compile Include="GameModel\Board\BoardRow.cs" />
     <Compile Include="GameModel\Board\Field\Field.cs" />
     <Compile Include="GameModel\Board\Field\FieldFactory.cs" />
+    <Compile Include="GameModel\Interfaces\IRenderer.cs" />
     <Compile Include="MainesweeperEntryPoint.cs" />
     <Compile Include="Utils\Constants.cs" />
   </ItemGroup>
@@ -85,6 +87,9 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HQC.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

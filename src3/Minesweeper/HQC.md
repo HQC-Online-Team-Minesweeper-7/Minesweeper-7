@@ -7,7 +7,13 @@
 *   Add folder GameModel
 *   Add folder Board
 *   Add folder Field
- *   Add class Field.cs
+*   Add class Field.cs
+*   Add folder Util
+*   Add class Constants.cs
+*   Add folder Interfaces
+*   Add interface IRender.cs
+*   Add class ConsoleRenderer.cs
+
  ```
     namespace Minesweeper.GameModel.Board.Field
     {
@@ -96,6 +102,15 @@ namespace Minesweeper.GameModel.Board.Field
 
 1.  Reformatted class Telerik.cs.
 *   Remove blank spaces and rows
+*   Remove bad coments
+```
+    // taiz igra sym ya igral na 8 godinki kato biah u lqlq stefka na komputera v bibliotekata
+```
+*   Remove 'usings'
+```    
+    using System.Linq;
+    using System.Text;
+```
 *   Insert class access modifier.
 *   Insert fields name , score.
 *   Move constructor before properties.
