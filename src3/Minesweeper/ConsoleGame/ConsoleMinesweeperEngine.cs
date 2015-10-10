@@ -17,88 +17,88 @@
 
 
 
-        static char[,] GenerateMinesweeperMatrix()
-        {
-            char[,] matrix = new char[5, 10];
+        //static char[,] GenerateMinesweeperMatrix()
+        //{
+        //    char[,] matrix = new char[5, 10];
 
-            var random = new Random();
-            int minesToInsert = 15;
+            //var random = new Random();
+            //int minesToInsert = 15;
 
-            while (minesToInsert > 0)
-            {
-                for (int i = 0; i < matrix.GetLength(0); i++)
-                {
-                    if (minesToInsert == 0)
-                    {
-                        break;
-                    }
+            //while (minesToInsert > 0)
+            //{
+            //    for (int i = 0; i < matrix.GetLength(0); i++)
+            //    {
+            //        if (minesToInsert == 0)
+            //        {
+            //            break;
+            //        }
 
-                    for (int j = 0; j < matrix.GetLength(1); j++)
-                    {
-                        if (minesToInsert == 0)
-                        {
-                            break;
-                        }
+            //        for (int j = 0; j < matrix.GetLength(1); j++)
+            //        {
+            //            if (minesToInsert == 0)
+            //            {
+            //                break;
+            //            }
 
-                        int randomNumber = random.Next(0, 3);
-                        if (randomNumber == 1)
-                        {
-                            matrix[i, j] = '*';
-                            minesToInsert--;
-                        }
-                    }
-                }
-            }
+            //            int randomNumber = random.Next(0, 3);
+            //            if (randomNumber == 1)
+            //            {
+            //                matrix[i, j] = '*';
+            //                minesToInsert--;
+            //            }
+            //        }
+            //    }
+            //}
 
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    if (matrix[i, j] == '*')
-                    {
-                        continue;
-                    }
+        //    for (int i = 0; i < matrix.GetLength(0); i++)
+        //    {
+        //        for (int j = 0; j < matrix.GetLength(1); j++)
+        //        {
+        //            if (matrix[i, j] == Constants.MinesSymbol)
+        //            {
+        //                continue;
+        //            }
 
-                    int neighbourMinesCount = GetNeighbourMinesCount(matrix, i, j);
-                    matrix[i, j] = (neighbourMinesCount.ToString()[0]);
-                }
-            }
+        //            int neighbourMinesCount = GetNeighbourMinesCount(matrix, i, j);
+        //            matrix[i, j] = (neighbourMinesCount.ToString()[0]);
+        //        }
+        //    }
 
-            return matrix;
-        }
+        //    return matrix;
+        //}
 
-        static int GetNeighbourMinesCount(char[,] matrix, int row, int col)
-        {
-            int minesCount = 0;
-            int[] rowPositions = { -1, -1, -1, 0, 1, 1, 1, 0 };
-            int[] colPositions = { -1, 0, 1, 1, 1, 0, -1, -1 };
-            int currentNeighbourRow = 0;
-            int currentNeighbourCol = 0;
+        //static int GetNeighbourMinesCount(char[,] matrix, int row, int col)
+        //{
+        //    int minesCount = 0;
+        //    int[] rowPositions = { -1, -1, -1, 0, 1, 1, 1, 0 };
+        //    int[] colPositions = { -1, 0, 1, 1, 1, 0, -1, -1 };
+        //    int currentNeighbourRow = 0;
+        //    int currentNeighbourCol = 0;
 
-            for (int position = 0; position < 8; position++)
-            {
+        //    for (int position = 0; position < 8; position++)
+        //    {
 
-                currentNeighbourRow = row + rowPositions[position];
+        //        currentNeighbourRow = row + rowPositions[position];
 
-                currentNeighbourCol = col + colPositions[position];
+        //        currentNeighbourCol = col + colPositions[position];
 
 
-                if (currentNeighbourRow < 0 ||
-                    currentNeighbourRow >= matrix.GetLength(0) ||
-                    currentNeighbourCol < 0 ||
-                    currentNeighbourCol >= matrix.GetLength(1))
-                {
-                    continue;
-                }
+        //        if (currentNeighbourRow < 0 ||
+        //            currentNeighbourRow >= matrix.GetLength(0) ||
+        //            currentNeighbourCol < 0 ||
+        //            currentNeighbourCol >= matrix.GetLength(1))
+        //        {
+        //            continue;
+        //        }
 
-                if (matrix[currentNeighbourRow, currentNeighbourCol] == '*')
-                {
-                    minesCount++;
-                }
+        //        if (matrix[currentNeighbourRow, currentNeighbourCol] == '*')
+        //        {
+        //            minesCount++;
+        //        }
 
-            }
-            return minesCount;
-        }
+        //    }
+        //    return minesCount;
+        //}
 
         private static void Commands()
         {
@@ -162,15 +162,15 @@
             gameInProgress = true;
             cellsOpened = 0;
 
-            playerMatrix = new char[5, 10];
-            matrix = new char[5, 10];
+            playerMatrix = new char[Constants.MatrixRow, Constants.MatrixColumn];
+            matrix = new char[Constants.MatrixRow, Constants.MatrixColumn];
 
-            matrix = GenerateMinesweeperMatrix();
+            matrix = MinesGenerator.GenerareMinesweeperInMatrix(matrix);
             for (int i = 0; i < playerMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < playerMatrix.GetLength(1); j++)
                 {
-                    playerMatrix[i, j] = '?';
+                    playerMatrix[i, j] = Constants.Symbol;
                 }
             }
             Console.WriteLine();
@@ -183,49 +183,47 @@
             PrintMatrix(playerMatrix);
 
             while (gameInProgress)
-            //abe typo izglejda ama ako napravq metod shte zaema mn mqsto
-            //kakvo pravq? -cheta dokat moga
             {
                 Commands();
             }
         }
+
         public static void Top()
         {
             Scoreboard(topListNames, topListCellsOpened);
         }
-        public static void MakeMove(int row, int col)
-        {//tuka sme na pyt da se premestim
-            if (playerMatrix[row, col] != '?')
-            {
 
-                //proverqvam dali moga da mrydna
+        public static void MakeMove(int row, int col)
+        {
+            if (playerMatrix[row, col] != Constants.Symbol)
+            {
                 Console.WriteLine("Illegal move!");
                 return;
             }
 
-            if (matrix[row, col] == '*')
+            if (matrix[row, col] == Constants.MinesSymbol)
             {
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
                     for (int j = 0; j < matrix.GetLength(1); j++)
                     {
-                        if (matrix[i, j] == '*')
+                        if (matrix[i, j] == Constants.MinesSymbol)
                         {
-                            playerMatrix[i, j] = '*';
+                            playerMatrix[i, j] = Constants.MinesSymbol;
                             continue;
                         }
 
-                        if (playerMatrix[i, j] == '?')
+                        if (playerMatrix[i, j] == Constants.Symbol)
                         {
-                            playerMatrix[i, j] = '-';
+                            playerMatrix[i, j] = Constants.EmptySymbol;
                         }
                     }
                 }
 
                 PrintMatrix(playerMatrix);
                 gameInProgress = false;
-                Console.WriteLine();
-                //oh izgyrmq
+
+                Console.WriteLine();                
                 Console.WriteLine("Booooom! You were killed by a mine. You revealed {0} cells without mines.", cellsOpened);
 
                 if (topListCellsOpened.Count == 0)

@@ -334,7 +334,10 @@ if (currentNeighbourRow < 0
 *   Formatted all other elements of the source code according to the best practices introduced in the course “High-Quality Programming Code”.
 …
 ### Renamed variables:
-*   In class ConsoleMineswiperEngine: matrica to matrix
+*   In class ConsoleMineeswiperEngine: matrica to matrix
+*   In class ConsoleMineeswiperEngine: chenge row and col in matrix with Constantc.MatrixRow and Constants.MatrixColumn
+*   In class ConsoleMineeswiperEngine: chenge '*'with Constantc.MinesSymbol
+*   In class ConsoleMinesweeperEngine remove all badd comments
 *   In class Fifteen: number to numberOfMoves.
 *   In Main(string\[\] args): g to gameFifteen.
 *   Introduced constants:
@@ -349,3 +352,6 @@ if (currentNeighbourRow < 0
 *   Rename method NovaIgra() to Start()
 *   Rename method DaiRezultati() to Scoreboard()
 *   Renamed the method procheti to Commands
+
+### Create class from method
+*   In class ConsoleMinesweeperEngine export GenerateMinesweeperMatrix() to class MineGenerator.GenerareMinesweeperInMatrix()

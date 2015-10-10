@@ -68,6 +68,8 @@
     <Compile Include="GameModel\Interfaces\IRenderer.cs" />
     <Compile Include="MainesweeperEntryPoint.cs" />
     <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\MatrixGenerator.cs" />
+    <Compile Include="Utils\MinesGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

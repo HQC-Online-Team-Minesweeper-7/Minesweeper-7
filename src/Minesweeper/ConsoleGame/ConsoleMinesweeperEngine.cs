@@ -232,6 +232,7 @@
                 PrintMatrix(playerMatrix);
             }
         }
+
         private void PrintMatrix(char[,] matrix)
         {
             renderer.WriteLine(String.Empty);
