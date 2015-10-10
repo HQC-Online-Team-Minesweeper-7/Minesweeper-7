@@ -25,5 +25,7 @@
                 return Content == MINE_CONTENT;
             }
         }
+
+        public bool IsView { get; set; }
     }
 }

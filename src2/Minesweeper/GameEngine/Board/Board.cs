@@ -2,11 +2,13 @@
 
 namespace GameEngine.Board
 {
+    using Field;
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
 
-    public class Board : IEnumerable<Field.Field>
+    public class Board : IBoard
     {
         public readonly int RowCount;
         public readonly int ColumnCount;
@@ -17,7 +19,7 @@ namespace GameEngine.Board
         {
             if (rowCount < 1)
             {
-                throw  new ArgumentOutOfRangeException("rowCount");
+                throw new ArgumentOutOfRangeException("rowCount");
             }
 
             if (columnCount < 1)
@@ -36,7 +38,15 @@ namespace GameEngine.Board
             }
         }
 
-        public Field.Field this[int row,int column]
+        public bool IsAllView
+        {
+            get
+            {
+                return this.rows.All(row => row.All(field => field.IsView));
+            }
+        }
+
+        public FieldWrapper this[int row, int column]
         {
             get
             {
@@ -48,14 +58,11 @@ namespace GameEngine.Board
             }
         }
 
-        public IEnumerator<Field.Field> GetEnumerator()
+        public IEnumerator<IBoardRow> GetEnumerator()
         {
             foreach (var row in this.rows)
             {
-                foreach (var field in row)
-                {
-                    yield return field;
-                }
+                yield return row;
             }
         }
 

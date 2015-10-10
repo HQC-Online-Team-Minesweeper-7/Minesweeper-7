@@ -6,7 +6,7 @@
     {
         private Dictionary<int, Field> Fields = new Dictionary<int, Field>();
 
-        public Field GetField(int content)
+        public FieldWrapper GetField(int content)
         {
             Field field;
 
@@ -17,7 +17,7 @@
                 this.Fields.Add(content, field);
             }
 
-            return field;
+            return new FieldWrapper(field);
         }
     }
 }

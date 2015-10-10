@@ -1,14 +1,15 @@
 ﻿namespace GameEngine.Board
 {
+    using Field;
     using System;
     using System.Collections;
     using System.Collections.Generic;
 
-    public class BoardRow : IEnumerable<Field.Field>
+    public class BoardRow : IBoardRow
     {
         public readonly int CountOfColumn;
 
-        private Field.Field[] row;
+        private FieldWrapper[] row;
 
         public BoardRow(int countOfColumn)
         {
@@ -18,10 +19,10 @@
             }
 
             this.CountOfColumn = countOfColumn;
-            this.row = new Field.Field[this.CountOfColumn];
+            this.row = new FieldWrapper[this.CountOfColumn];
         }
 
-        public Field.Field this[int column]
+        public FieldWrapper this[int column]
         {
             get
             {
@@ -33,7 +34,7 @@
             }
         }
 
-        public IEnumerator<Field.Field> GetEnumerator()
+        public IEnumerator<IField> GetEnumerator()
         {
             foreach (var field in this.row)
             {
