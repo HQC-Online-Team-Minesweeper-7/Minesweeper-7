@@ -41,11 +41,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\Board.cs" />
-    <Compile Include="Board\BoardGenerator.cs" />
+    <Compile Include="Board\BoardBuilder.cs" />
     <Compile Include="Board\BoardRow.cs" />
     <Compile Include="Board\Field\Field.cs" />
     <Compile Include="Board\Field\FieldFactory.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="CommandFactory.cs" />
+    <Compile Include="Data\FilePlayerMementoStorage.cs" />
+    <Compile Include="Data\IPlayerMementoStorage.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\StartState.cs" />
+    <Compile Include="State\State.cs" />
+    <Compile Include="Statistic\IStatistic.cs" />
+    <Compile Include="Statistic\IStatisticStorage.cs" />
+    <Compile Include="Statistic\IStatisticFactory.cs" />
+    <Compile Include="Statistic\Player\IPlayer.cs" />
+    <Compile Include="Statistic\Player\Player.cs" />
+    <Compile Include="Statistic\Player\PlayerBackwardComparer.cs" />
+    <Compile Include="Statistic\Player\PlayerCaretaker.cs" />
+    <Compile Include="Statistic\Player\PlayerMemento.cs" />
+    <Compile Include="Statistic\Statistic.cs" />
+    <Compile Include="Statistic\StatisticStorage.cs" />
+    <Compile Include="Statistic\StatisticStorageDummy.cs" />
+    <Compile Include="IRender.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

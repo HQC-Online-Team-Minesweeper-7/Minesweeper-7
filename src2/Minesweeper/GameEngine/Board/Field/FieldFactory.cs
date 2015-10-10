@@ -4,7 +4,7 @@
 
     public class FieldFactory
     {
-        private Dictionary<int,Field> Fields =new Dictionary<int, Field>(); 
+        private Dictionary<int, Field> Fields = new Dictionary<int, Field>();
 
         public Field GetField(int content)
         {

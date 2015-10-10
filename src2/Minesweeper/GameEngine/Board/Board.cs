@@ -36,7 +36,7 @@ namespace GameEngine.Board
             }
         }
 
-        public Field.Field this[int row, int column]
+        public Field.Field this[int row,int column]
         {
             get
             {
