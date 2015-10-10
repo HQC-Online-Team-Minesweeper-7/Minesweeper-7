@@ -1,9 +1,11 @@
-﻿namespace Minesweeper.ConsoleGame
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-    internal class ConsoleMinesweeperEngine
+namespace Minesweeper.ConsoleGame
+{
+    internal static class ConsoleMinesweeperEngine
     {
         static char[,] matrica;
         static char[,] playerMatrix;
@@ -13,7 +15,6 @@
         static int cellsOpened = 0;
         static List<string> topListNames = new List<string>();
         static List<int> topListCellsOpened = new List<int>();
-
 
 
         static void PrintMatrix(char[,] matrix)
@@ -118,7 +119,7 @@
             return minesCount;
         }
 
-        static void Commands()
+        static void procheti()
         {
             Console.WriteLine();
             Console.Write("Enter row and column: ");
@@ -185,9 +186,8 @@
                 out colInput);
             if (!proverka) { Console.WriteLine("Illegal input!"); return; }
 
-            MakeMove(rowInput, colInput);
+            DoMove(rowInput, colInput);
         }
-
         static void Exit()
         {
             Environment.Exit(1);
@@ -222,16 +222,14 @@
             //abe typo izglejda ama ako napravq metod shte zaema mn mqsto
             //kakvo pravq? -cheta dokat moga
             {
-                Commands();
+                procheti();
             }
         }
-
         static void Top()
         {
-            ScoreBoard(topListNames, topListCellsOpened);
+            DaiRezultati(topListNames, topListCellsOpened);
         }
-
-        static void MakeMove(int row, int col)
+        static void DoMove(int row, int col)
         {//tuka sme na pyt da se premestim
             if (playerMatrix[row, col] != '?')
             {
@@ -300,7 +298,7 @@
                 }
 
                 playerAddedToScoreboard = false;
-                ScoreBoard(topListNames, topListCellsOpened);
+                DaiRezultati(topListNames, topListCellsOpened);
                 Start();
             }
             else
@@ -321,7 +319,7 @@
                         topListCellsOpened.RemoveAt(5);
                         topListNames.RemoveAt(5);
                     }
-                    ScoreBoard(topListNames, topListCellsOpened);
+                    DaiRezultati(topListNames, topListCellsOpened);
                     Start();
                     return;
                 }
@@ -330,7 +328,7 @@
             }
         }
 
-        static void ScoreBoard(List<string> playerNames, List<int> openedCells)
+        static void DaiRezultati(List<string> playerNames, List<int> openedCells)
         {
             Console.WriteLine();
             Console.WriteLine("Scoreboard:");
