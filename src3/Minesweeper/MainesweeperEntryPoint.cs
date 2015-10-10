@@ -4,7 +4,7 @@
 
     internal class MainesweeperEntryPoint
     {
-        internal static void Main(string[] args)
+        internal static void Main()
         {
             ConsoleMinesweeperEngine.Start();
         }

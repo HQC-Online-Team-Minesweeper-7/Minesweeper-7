@@ -251,6 +251,73 @@ if (currentNeighbourRow < 0
 
 >   Before
 ```
+    if (input.Length != 3)
+            {
+                Console.WriteLine("Illegal input!");
+                return;
+            }
+
+            if (input[1] != ' ')
+            {
+                Console.WriteLine("Illegal input!");
+                return;
+            }
+```
+
+>   After
+
+```
+    if (input.Length != Constants.InputLength || input[1] != ' ')
+            {
+                Console.WriteLine("Illegal input!");
+                return;
+            }
+```
+
+>   Before
+```
+    bool proverka;
+            int rowInput;
+            proverka = int.TryParse(input[0].ToString(), out rowInput);
+
+            if (!proverka)
+            {
+                Console.WriteLine("Illegal input!");
+                return;
+            }
+
+            int colInput;
+            proverka = int.TryParse(input[2].ToString(), out colInput);
+
+            if (!proverka)
+            {
+                Console.WriteLine("Illegal input!"); return;
+            }
+```
+
+>   After
+
+```
+    int rowInput = CheckInputValue(input, 0);
+    int colInput = CheckInputValue(input, 2);
+
+    private static int CheckInputValue(string input, int position)
+        {
+            int result;
+            bool isTrue = int.TryParse(input[position].ToString(), out result);
+
+            if (!isTrue)
+            {
+                Console.WriteLine("Illegal input!");
+                Commands();
+            }
+
+            return result;
+        }
+```
+
+>   Before
+```
 
 ```
 
@@ -259,6 +326,7 @@ if (currentNeighbourRow < 0
 ```
 
 ```
+
 
 *   Formatted the curly braces { and } according to the best practices for the C# language.
 *   Put { and } after all conditionals and loops (when missing).

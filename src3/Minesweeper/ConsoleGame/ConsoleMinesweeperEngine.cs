@@ -1,9 +1,10 @@
 ﻿namespace Minesweeper.ConsoleGame
 {
+    using Utils;
     using System;
     using System.Collections.Generic;
 
-    internal static class ConsoleMinesweeperEngine
+    internal class ConsoleMinesweeperEngine
     {
         static char[,] matrix;
         static char[,] playerMatrix;
@@ -15,24 +16,6 @@
         static List<int> topListCellsOpened = new List<int>();
 
 
-        static void PrintMatrix(char[,] matrix)
-        {
-            Console.WriteLine();
-            Console.WriteLine("    0 1 2 3 4 5 6 7 8 9");
-            Console.WriteLine("   ----------------------");
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                Console.Write("{0} | ", i);
-
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    Console.Write("{0} ", matrix[i, j]);
-                }
-
-                Console.WriteLine("|");
-            }
-            Console.WriteLine("   ----------------------");
-        }
 
         static char[,] GenerateMinesweeperMatrix()
         {
@@ -84,7 +67,7 @@
             return matrix;
         }
 
-        static int GetNeighbourMinesCount(char[,] matrica, int row, int col)
+        static int GetNeighbourMinesCount(char[,] matrix, int row, int col)
         {
             int minesCount = 0;
             int[] rowPositions = { -1, -1, -1, 0, 1, 1, 1, 0 };
@@ -101,14 +84,14 @@
 
 
                 if (currentNeighbourRow < 0 ||
-                    currentNeighbourRow >= matrica.GetLength(0) ||
+                    currentNeighbourRow >= matrix.GetLength(0) ||
                     currentNeighbourCol < 0 ||
-                    currentNeighbourCol >= matrica.GetLength(1))
+                    currentNeighbourCol >= matrix.GetLength(1))
                 {
                     continue;
                 }
 
-                if (matrica[currentNeighbourRow, currentNeighbourCol] == '*')
+                if (matrix[currentNeighbourRow, currentNeighbourCol] == '*')
                 {
                     minesCount++;
                 }
@@ -117,7 +100,7 @@
             return minesCount;
         }
 
-        static void Commands()
+        private static void Commands()
         {
             Console.WriteLine();
             Console.Write("Enter row and column: ");
@@ -142,39 +125,34 @@
                 return;
             }
 
-            if (input.Length != 3)
+            if (input.Length != Constants.InputLength || input[1] != ' ')
             {
                 Console.WriteLine("Illegal input!");
                 return;
             }
 
-            if (input[1] != ' ')
-            {
-                Console.WriteLine("Illegal input!");
-                return;
-            }
+            int rowInput = CheckInputValue(input, 0);
 
-            bool proverka;
-            int rowInput;
-            proverka = int.TryParse(input[0].ToString(), out rowInput);
+            int colInput = CheckInputValue(input, 2);            
 
-            if (!proverka)
-            {
-                Console.WriteLine("Illegal input!");
-                return;
-            }
-
-            int colInput;
-            proverka = int.TryParse(input[2].ToString(), out colInput);
-
-            if (!proverka)
-            {
-                Console.WriteLine("Illegal input!"); return;
-            }
-
-            DoMove(rowInput, colInput);
+            MakeMove(rowInput, colInput);
         }
-        static void Exit()
+
+        private static int CheckInputValue(string input, int position)
+        {
+            int result;
+            bool isTrue = int.TryParse(input[position].ToString(), out result);
+
+            if (!isTrue)
+            {
+                Console.WriteLine("Illegal input!");
+                Commands();
+            }
+
+            return result;
+        }
+
+            static void Exit()
         {
             Environment.Exit(1);
         }
@@ -211,11 +189,11 @@
                 Commands();
             }
         }
-        static void Top()
+        public static void Top()
         {
-            DaiRezultati(topListNames, topListCellsOpened);
+            Scoreboard(topListNames, topListCellsOpened);
         }
-        static void DoMove(int row, int col)
+        public static void MakeMove(int row, int col)
         {//tuka sme na pyt da se premestim
             if (playerMatrix[row, col] != '?')
             {
@@ -284,7 +262,7 @@
                 }
 
                 playerAddedToScoreboard = false;
-                DaiRezultati(topListNames, topListCellsOpened);
+                Scoreboard(topListNames, topListCellsOpened);
                 Start();
             }
             else
@@ -305,7 +283,7 @@
                         topListCellsOpened.RemoveAt(5);
                         topListNames.RemoveAt(5);
                     }
-                    DaiRezultati(topListNames, topListCellsOpened);
+                    Scoreboard(topListNames, topListCellsOpened);
                     Start();
                     return;
                 }
@@ -314,7 +292,7 @@
             }
         }
 
-        static void DaiRezultati(List<string> playerNames, List<int> openedCells)
+        public static void Scoreboard(List<string> playerNames, List<int> openedCells)
         {
             Console.WriteLine();
             Console.WriteLine("Scoreboard:");
@@ -324,5 +302,25 @@
                 Console.WriteLine();
             }
         }
+
+        private static void PrintMatrix(char[,] matrix)
+        {
+            Console.WriteLine();
+            Console.WriteLine("    0 1 2 3 4 5 6 7 8 9");
+            Console.WriteLine("   ----------------------");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                Console.Write("{0} | ", i);
+
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write("{0} ", matrix[i, j]);
+                }
+
+                Console.WriteLine("|");
+            }
+            Console.WriteLine("   ----------------------");
+        }
+
     }
 }
