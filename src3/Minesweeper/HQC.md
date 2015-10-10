@@ -15,6 +15,7 @@
 *   Add folder ConsoleGame
 *   Add class ConsoleRenderer.cs
 *   Add class ConsoleMinesweeperEngine.cs
+*   Move all logic in class ConsoleMinesweeperEngine.cs
 
  ```
     namespace Minesweeper.GameModel.Board.Field
@@ -172,12 +173,13 @@ if (currentNeighbourRow < 0
 ```
 >   After
 ```
-if (matrica[currentNeighbourRow, currentNeighbourCol] == '*')
+    if (matrica[currentNeighbourRow, currentNeighbourCol] == '*')
                 {
                     minesCount++;
                 }
 
 ```
+
 *   Formatted the curly braces { and } according to the best practices for the C# language.
 *   Put { and } after all conditionals and loops (when missing).
 *   Character casing: variables and fields made camelCase; types and methods made PascalCase.

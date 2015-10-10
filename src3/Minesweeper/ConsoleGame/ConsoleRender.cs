@@ -6,7 +6,7 @@
 
     public class ConsoleRender : IRenderer
     {
-        public void Write(string text)
+        public static void Write(string text)
         {
             Console.Write(text);
         }
