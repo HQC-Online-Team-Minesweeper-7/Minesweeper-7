@@ -2,11 +2,11 @@
 {
     using System;
 
-    using GameModel.Interfaces;
+    using Minesweeper.GameModel.Interfaces;
 
     public class ConsoleRender : IRenderer
     {
-        public static void Write(string text)
+        public void Write(string text)
         {
             Console.Write(text);
         }

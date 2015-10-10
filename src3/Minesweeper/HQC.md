@@ -94,8 +94,7 @@ namespace Minesweeper.GameModel.Board.Field
     }
 }
 ```
-    -   Renamed the method DaiRezultati to Scoreboard
-*   Renamed the method procheti to Commands
+
 *   Formatted code - if, for, while
 *   Create IScoreBoard.cs
 *   Create Scoreboard.cs
@@ -197,4 +196,6 @@ if (currentNeighbourRow < 0
 …
 
 ### Renamed methods
-*   Rename method NovaIgra() to Start() in 
+*   Rename method NovaIgra() to Start()
+*   Rename method DaiRezultati() to ScoreBoard()
+*   Renamed the method procheti to Commands

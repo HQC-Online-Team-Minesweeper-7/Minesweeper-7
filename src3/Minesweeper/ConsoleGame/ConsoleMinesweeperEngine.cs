@@ -118,7 +118,7 @@
             return minesCount;
         }
 
-        static void procheti()
+        static void Commands()
         {
             Console.WriteLine();
             Console.Write("Enter row and column: ");
@@ -185,7 +185,7 @@
                 out colInput);
             if (!proverka) { Console.WriteLine("Illegal input!"); return; }
 
-            DoMove(rowInput, colInput);
+            MakeMove(rowInput, colInput);
         }
 
         static void Exit()
@@ -222,16 +222,16 @@
             //abe typo izglejda ama ako napravq metod shte zaema mn mqsto
             //kakvo pravq? -cheta dokat moga
             {
-                procheti();
+                Commands();
             }
         }
 
         static void Top()
         {
-            DaiRezultati(topListNames, topListCellsOpened);
+            ScoreBoard(topListNames, topListCellsOpened);
         }
 
-        static void DoMove(int row, int col)
+        static void MakeMove(int row, int col)
         {//tuka sme na pyt da se premestim
             if (playerMatrix[row, col] != '?')
             {
@@ -300,7 +300,7 @@
                 }
 
                 playerAddedToScoreboard = false;
-                DaiRezultati(topListNames, topListCellsOpened);
+                ScoreBoard(topListNames, topListCellsOpened);
                 Start();
             }
             else
@@ -321,7 +321,7 @@
                         topListCellsOpened.RemoveAt(5);
                         topListNames.RemoveAt(5);
                     }
-                    DaiRezultati(topListNames, topListCellsOpened);
+                    ScoreBoard(topListNames, topListCellsOpened);
                     Start();
                     return;
                 }
@@ -330,7 +330,7 @@
             }
         }
 
-        static void DaiRezultati(List<string> playerNames, List<int> openedCells)
+        static void ScoreBoard(List<string> playerNames, List<int> openedCells)
         {
             Console.WriteLine();
             Console.WriteLine("Scoreboard:");
