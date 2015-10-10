@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minesweeper.ConsoleGame
 {
-    internal class ConsoleMinesweeperEngine
+    internal static class ConsoleMinesweeperEngine
     {
         static char[,] matrica;
         static char[,] playerMatrix;
@@ -15,7 +15,6 @@ namespace Minesweeper.ConsoleGame
         static int cellsOpened = 0;
         static List<string> topListNames = new List<string>();
         static List<int> topListCellsOpened = new List<int>();
-
 
 
         static void PrintMatrix(char[,] matrix)
@@ -119,6 +118,7 @@ namespace Minesweeper.ConsoleGame
             }
             return minesCount;
         }
+
         static void procheti()
         {
             Console.WriteLine();
