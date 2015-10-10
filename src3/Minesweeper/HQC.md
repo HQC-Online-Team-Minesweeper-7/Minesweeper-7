@@ -1,9 +1,9 @@
 ## Refactoring Documentation for Project “Minesweeper”
 
 ###  1.  Redesigned the project structure: Team “Minesweeper - 7”
-*   Renamed the project to Minesweeper. - T Dakov
-*    Renamed the namespace Igrata_Minichki to Minesweeper. - T Dakov
-*    Renamed the main class Telerik to MainesweeperEntryPoint. - T Dakov
+*   Renamed the project to Minesweeper
+*    Renamed the namespace Igrata_Minichki to Minesweeper
+*    Renamed the main class Telerik to MainesweeperEntryPoint
 *   Add folder GameModel
 *   Add folder Board
 *   Add folder Field
@@ -12,7 +12,9 @@
 *   Add class Constants.cs
 *   Add folder Interfaces
 *   Add interface IRender.cs
+*   Add folder ConsoleGame
 *   Add class ConsoleRenderer.cs
+*   Add class ConsoleMinesweeperEngine.cs
 
  ```
     namespace Minesweeper.GameModel.Board.Field
@@ -91,11 +93,11 @@ namespace Minesweeper.GameModel.Board.Field
     }
 }
 ```
-    -   Renamed the method DaiRezultati to Scoreboard. - T Dakov
-*   Renamed the method procheti to Commands. T Dakov
-*   Formatted code - if, for, while - T Dakov
-*   Create IScoreBoard.cs - T Dakov
-*   Create Scoreboard.cs - T Dakov
+    -   Renamed the method DaiRezultati to Scoreboard
+*   Renamed the method procheti to Commands
+*   Formatted code - if, for, while
+*   Create IScoreBoard.cs
+*   Create Scoreboard.cs
 *   Extracted each class in a separate file with a good name: GameMinesweeper.cs, Dashboard.cs, Panel.cs, Commands.cs, Person.cs.
 …
 ### Reformatted the source code:
@@ -192,4 +194,5 @@ if (matrica[currentNeighbourRow, currentNeighbourCol] == '*')
 *   Moved method GenerateRandomNumber(int start, int end) to separate class RandomUtils.
 …
 
-### Removed blank rows
+### Renamed methods
+*   Rename method NovaIgra() to Start() in 

@@ -58,12 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleGame\ConsoleMinesweeperEngine.cs" />
     <Compile Include="ConsoleGame\ConsoleRender.cs" />
-    <Compile Include="GameModel\Board\Board.cs" />
-    <Compile Include="GameModel\Board\BoardGenerator.cs" />
-    <Compile Include="GameModel\Board\BoardRow.cs" />
-    <Compile Include="GameModel\Board\Field\Field.cs" />
-    <Compile Include="GameModel\Board\Field\FieldFactory.cs" />
+    <Compile Include="GameModel\Dashboard\Board.cs" />
+    <Compile Include="GameModel\Dashboard\BoardGenerator.cs" />
+    <Compile Include="GameModel\Dashboard\BoardRow.cs" />
+    <Compile Include="GameModel\Dashboard\Field\Field.cs" />
+    <Compile Include="GameModel\Dashboard\Field\FieldFactory.cs" />
     <Compile Include="GameModel\Interfaces\IRenderer.cs" />
     <Compile Include="MainesweeperEntryPoint.cs" />
     <Compile Include="Utils\Constants.cs" />
