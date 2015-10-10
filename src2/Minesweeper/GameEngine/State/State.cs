@@ -16,6 +16,6 @@
             this.Engine = engine;
         }
 
-        public abstract void NextMove();
+        public abstract void Play();
     }
 }

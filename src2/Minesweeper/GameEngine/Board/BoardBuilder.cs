@@ -69,7 +69,7 @@ namespace GameEngine.Board
             {
                 for (int columnIndex = 0; columnIndex < this.ColumnCount; columnIndex++)
                 {
-                    if (this.Board[rowIndex, columnIndex].IsMine)
+                    if (this.Board[rowIndex, columnIndex].Field.IsMine)
                     {
                         continue;
                     }
@@ -98,7 +98,7 @@ namespace GameEngine.Board
                     continue;
                 }
 
-                if (this.Board[currentNeighbourRow, currentNeighbourCol].IsMine)
+                if (this.Board[currentNeighbourRow, currentNeighbourCol].Field.IsMine)
                 {
                     minesCount++;
                 }

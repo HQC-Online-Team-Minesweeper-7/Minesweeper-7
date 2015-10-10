@@ -1,4 +1,6 @@
-﻿using GameEngine.Statistic;
+﻿using GameEngine.Board;
+using GameEngine.Commands;
+using GameEngine.Statistic;
 
 namespace GameEngine
 {
@@ -6,9 +8,11 @@ namespace GameEngine
     {
         void ShowWelcomeScreen();
 
-        void ShowBoard();
+        void ShowBoard(IBoard board);
 
-        Command SetCommand();
+        Command SetCommand(CommandFactory commandFactory);
+
+        void ShowInvalidMoveMessage();
 
         void ShowSuccessScreen();
 
@@ -17,5 +21,7 @@ namespace GameEngine
         string SetName();
 
         void ShowHighScore(IStatistic statistic);
+
+        void Exit();
     }
 }
