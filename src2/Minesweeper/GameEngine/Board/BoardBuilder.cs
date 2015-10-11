@@ -1,16 +1,42 @@
-﻿namespace GameEngine.Board
+﻿// ----------------------------------------------------------------------
+// <copyright file="BoardBuilder.cs" company="Telerik Academy">
+//   Teamwork Project "Minesweeper-7"
+// </copyright>
+// <summary>
+// The board builder.
+// </summary>
+// ----------------------------------------------------------------------
+namespace GameEngine.Board
 {
     using System;
 
     using GameEngine.Board.Field;
 
+    /// <summary>
+    /// The board builder.
+    /// </summary>
     public class BoardBuilder
     {
+        /// <summary>
+        /// The RowCount.
+        /// </summary>
         public readonly int RowCount;
+
+        /// <summary>
+        /// The ColumnCount.
+        /// </summary>
         public readonly int ColumnCount;
 
+        /// <summary>
+        /// The board.
+        /// </summary>
         private Board board;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BoardBuilder"/> class.
+        /// </summary>
+        /// <param name="rowCount">The row counter.</param>
+        /// <param name="columnCount">The column counter.</param>
         public BoardBuilder(int rowCount, int columnCount)
         {
             if (rowCount < 1)
@@ -29,6 +55,11 @@
             this.board = new Board(this.RowCount, this.ColumnCount);
         }
 
+        /// <summary>
+        /// The board generator.
+        /// </summary>
+        /// <param name="mineCount">The mines counter.</param>
+        /// <returns>The <see cref="Board"/>.</returns>
         public Board Generate(int mineCount)
         {
             if (mineCount < 1 || this.ColumnCount * this.RowCount < mineCount)
@@ -83,6 +114,12 @@
             return this.board;
         }
 
+        /// <summary>
+        /// Count neighbor mines.
+        /// </summary>
+        /// <param name="row">The rows...</param>
+        /// <param name="col">The columns.</param>
+        /// <returns>The <see cref="Board"/>.</returns>
         private int GetNeighbourMinesCount(int row, int col)
         {
             int minesCount = 0;

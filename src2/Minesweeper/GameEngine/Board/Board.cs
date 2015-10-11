@@ -1,20 +1,45 @@
-﻿namespace GameEngine.Board
+﻿// ----------------------------------------------------------------------
+// <copyright file="Board.cs" company="Telerik Academy">
+//   Teamwork Project "Minesweeper-7"
+// </copyright>
+// <summary>
+// The board.
+// </summary>
+// ----------------------------------------------------------------------
+namespace GameEngine.Board
 {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Net.NetworkInformation;
 
     using Field;
 
+    /// <summary>
+    /// The board.
+    /// </summary>
     public class Board : IBoard
     {
+        /// <summary>
+        /// The RowCount.
+        /// </summary>
         public readonly int RowCount;
+
+        /// <summary>
+        /// The ColumnCount.
+        /// </summary>
         public readonly int ColumnCount;
 
+        /// <summary>
+        /// The board row.
+        /// </summary>
         private BoardRow[] rows;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Board"/> class.
+        /// </summary>
+        /// <param name="rowCount">The row counter.</param>
+        /// <param name="columnCount">The column counter.</param>
         public Board(int rowCount, int columnCount)
         {
             if (rowCount < 1)
@@ -38,6 +63,10 @@
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether is all view.
+        /// </summary>
+        /// <value>Get is all view.</value>       
         public bool IsAllView
         {
             get
@@ -46,6 +75,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether is field wrapper.
+        /// </summary>
+        /// <param name="row">The rows...</param>
+        /// <param name="column">The columns.</param>
+        /// <returns>The <see cref="FieldWrapper"/>.</returns>
         public FieldWrapper this[int row, int column]
         {
             get
@@ -59,6 +94,12 @@
             }
         }
 
+        /// <summary>
+        /// Check the correct position.
+        /// </summary>
+        /// <param name="x">The x position.</param>
+        /// <param name="y">The y position.</param>
+        /// <returns>Is correct position <see cref="bool"/>.</returns>
         public bool IsCorrectPosition(int x, int y)
         {
             if (x < 0 || this.ColumnCount - 1 < x)
@@ -74,6 +115,10 @@
             return true;
         }
 
+        /// <summary>
+        /// The enumerator.
+        /// </summary>
+        /// <returns>The <see cref="IEnumerator"/>.</returns>
         public IEnumerator<IBoardRow> GetEnumerator()
         {
             foreach (var row in this.rows)
@@ -82,6 +127,10 @@
             }
         }
 
+        /// <summary>
+        /// The enumerator.
+        /// </summary>
+        /// <returns>The <see cref="IEnumerator"/>.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();

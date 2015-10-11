@@ -1,12 +1,29 @@
-﻿namespace ConsoleMinesweeper
+﻿// ----------------------------------------------------------------------
+// <copyright file="FieldVisualator.cs" company="Telerik Academy">
+//   Teamwork Project "Minesweeper-7"
+// </copyright>
+// <summary>
+// The console render Singleton.
+// </summary>
+// ----------------------------------------------------------------------
+namespace ConsoleMinesweeper
 {
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// The field visualizer.
+    /// </summary>
     public class FieldVisualator
     {
+        /// <summary>
+        /// The fields.
+        /// </summary>
         private Dictionary<int, string> fields = new Dictionary<int, string>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FieldVisualator"/> class.
+        /// </summary>
         public FieldVisualator()
         {
             this.fields.Add(-1, "*");
@@ -21,6 +38,11 @@
             this.fields.Add(8, "8");
         }
 
+        /// <summary>
+        /// Gets UI elements.
+        /// </summary>
+        /// <param name="content">Gets symbols.</param>
+        /// <returns> The <see cref="string"/>.</returns>
         public string GetUIElement(int content)
         {
             string symbol;
