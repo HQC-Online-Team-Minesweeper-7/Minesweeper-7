@@ -90,6 +90,7 @@ namespace GameEngine.Board
 
             set
             {
+
                 this.rows[row][column] = value;
             }
         }
@@ -107,7 +108,7 @@ namespace GameEngine.Board
                 return false;
             }
 
-            if (y < 0 || this.ColumnCount - 1 < y)
+            if (y < 0 || this.RowCount - 1 < y)
             {
                 return false;
             }

@@ -15,15 +15,31 @@ namespace GameEngine.Statistic.Player
     /// </summary>
     public class Player : IPlayer
     {
+        /// <summary>
+        /// The name...
+        /// </summary>
         private string name;
+
+        /// <summary>
+        /// The score.
+        /// </summary>
         private int score;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// </summary>
+        /// <param name="name">The name...</param>
+        /// <param name="score">The score.</param>
         public Player(string name, int score = 0)
         {
             this.Name = name;
             this.Score = score;
         }
 
+        /// <summary>
+        /// Gets a value indicating whether is name.
+        /// </summary>
+        /// <value>Get the name.</value>
         public string Name
         {
             get
@@ -42,6 +58,10 @@ namespace GameEngine.Statistic.Player
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether is score.
+        /// </summary>
+        /// <value>Get the score.</value>
         public int Score
         {
             get
@@ -60,12 +80,20 @@ namespace GameEngine.Statistic.Player
             }
         }
 
+        /// <summary>
+        /// The restore player from memento.
+        /// </summary>
+        /// <param name="memento">The memento.</param>
         public void RestoreFromMemento(PlayerMemento memento)
         {
             this.Name = memento.Name;
             this.Score = memento.Score;
         }
 
+        /// <summary>
+        /// The store player to memento.
+        /// </summary>
+        /// <returns>The <see cref="PlayerMemento"/>.</returns>
         public PlayerMemento StoreToMemento()
         {
             var memento = new PlayerMemento(this.Name, this.Score);

@@ -1,17 +1,40 @@
-﻿namespace GameEngine.Statistic.Player
+﻿// ----------------------------------------------------------------------
+// <copyright file="PlayerCaretaker.cs" company="Telerik Academy">
+//   Teamwork Project "Minesweeper-7"
+// </copyright>
+// <summary>
+// The player caretaker.
+// </summary>
+// ----------------------------------------------------------------------
+namespace GameEngine.Statistic.Player
 {
     using System;
+
     using GameEngine.Data;
 
+    /// <summary>
+    /// The player caretaker.
+    /// </summary>
     public class PlayerCaretaker
     {
+        /// <summary>
+        /// The players storage.
+        /// </summary>
         private IPlayerMementoStorage playerStorage;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerCaretaker"/> class.
+        /// </summary>
+        /// <param name="playerStorage">The playersStorage.</param>
         public PlayerCaretaker(IPlayerMementoStorage playerStorage)
         {
             this.PlayerStorage = playerStorage;
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether is PlayerStorage.
+        /// </summary>
+        /// <value>Gets or sets stored players.</value>
         public IPlayerMementoStorage PlayerStorage
         {
             get
@@ -38,6 +61,10 @@
             }
         }
 
+        /// <summary>
+        /// Add to memento.
+        /// </summary>
+        /// <param name="playerMemento">The playerMemento.</param>
         public void AddMemento(PlayerMemento playerMemento)
         {
             if (playerMemento == null)
@@ -48,6 +75,11 @@
             this.PlayerStorage.Add(playerMemento);
         }
 
+        /// <summary>
+        /// Restore from memento.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns>The <see cref="FieldWrapper"/>.</returns>
         public PlayerMemento GetMemento(int index)
         {
             return this.PlayerStorage.Get(index);
