@@ -13,7 +13,7 @@
             this.X = x;
             this.Y = y;
 
-            base.Engine.State = new MoveState(base.Engine, this.X, this.Y);
+            Engine.State = new MoveState(Engine, this.X, this.Y);
         }
     }
 }

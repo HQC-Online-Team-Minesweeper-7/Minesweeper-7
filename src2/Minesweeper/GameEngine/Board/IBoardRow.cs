@@ -1,12 +1,9 @@
-﻿using GameEngine.Board.Field;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameEngine.Board
+﻿namespace GameEngine.Board
 {
+    using System.Collections.Generic;
+
+    using GameEngine.Board.Field;
+
     public interface IBoardRow : IEnumerable<IField>
     {
     }

@@ -5,6 +5,7 @@
     public interface IStatisticStorage
     {
         void Save(IStatistic statistic);
+
         IStatistic Restore();
     }
 }

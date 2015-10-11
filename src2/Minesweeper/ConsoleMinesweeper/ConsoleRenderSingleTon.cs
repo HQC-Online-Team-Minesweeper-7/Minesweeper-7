@@ -9,11 +9,11 @@
     public class ConsoleRenderSingleton : IRender
     {
         private static IRender instance;
-        private FieldVisualator FieldVisualator;
+        private FieldVisualator fieldVisualator;
 
         private ConsoleRenderSingleton()
         {
-            this.FieldVisualator = new FieldVisualator();
+            this.fieldVisualator = new FieldVisualator();
         }
 
         public static IRender Instance
@@ -75,7 +75,7 @@
             }
 
             int columnInput;
-            isSuccessParse =int.TryParse(input[2].ToString(), out columnInput);
+            isSuccessParse = int.TryParse(input[2].ToString(), out columnInput);
 
             if (!isSuccessParse)
             {
@@ -111,7 +111,7 @@
 
                     if (field.IsView)
                     {
-                        uiElement = this.FieldVisualator.GetUIElement(field.Content);
+                        uiElement = this.fieldVisualator.GetUIElement(field.Content);
                     }
 
                     Console.Write("{0} ", uiElement);
@@ -119,6 +119,7 @@
 
                 Console.WriteLine("|");
             }
+
             Console.WriteLine("   ----------------------");
         }
 

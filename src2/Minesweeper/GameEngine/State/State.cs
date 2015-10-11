@@ -8,9 +8,9 @@
 
         public State(Engine engine)
         {
-            if(engine == null)
+            if (engine == null)
             {
-                throw new ArgumentNullException("engine");
+                throw new ArgumentNullException(nameof(engine));
             }
 
             this.Engine = engine;

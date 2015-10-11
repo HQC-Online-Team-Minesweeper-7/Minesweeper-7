@@ -8,16 +8,17 @@
 
     public class Statistic : IStatistic
     {
+        public readonly List<IPlayer> Players = new List<IPlayer>();
+
         private IComparer<IPlayer> backComparer;
-        private readonly List<IPlayer> Players = new List<IPlayer>();
 
         public Statistic(IComparer<IPlayer> backComparer)
         {
-            BackComparer = backComparer;
+            this.BackComparer = backComparer;
         }
 
         public Statistic()
-            :this(new PlayerBackwardComparer())
+            : this(new PlayerBackwardComparer())
         {
         }
 
@@ -27,14 +28,15 @@
             {
                 return this.backComparer;
             }
+
             set
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("comparer");
+                    throw new ArgumentNullException(nameof(value), "comparer");
                 }
 
-                if(this.backComparer != value)
+                if (this.backComparer != value)
                 {
                     this.Players.Sort(value);
                 }
@@ -45,20 +47,20 @@
 
         public void Add(IPlayer player)
         {
-            if(player == null)
+            if (player == null)
             {
-                throw new ArgumentNullException("player");
+                throw new ArgumentNullException(nameof(player));
             }
 
             this.Players.Add(player);
-            this.Players.Sort(BackComparer);
+            this.Players.Sort(this.BackComparer);
         }
 
         public void Remove(IPlayer player)
         {
             if (player == null)
             {
-                throw new ArgumentNullException("player");
+                throw new ArgumentNullException(nameof(player));
             }
 
             this.Players.Remove(player);

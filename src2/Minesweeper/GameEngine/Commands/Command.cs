@@ -1,16 +1,16 @@
-﻿using System;
-
-namespace GameEngine.Commands
+﻿namespace GameEngine.Commands
 {
+    using System;
+
     public abstract class Command
     {
         public Engine Engine;
 
         public Command(Engine engine)
         {
-            if(engine == null)
+            if (engine == null)
             {
-                throw new ArgumentNullException("engine");
+                throw new ArgumentNullException(nameof(engine));
             }
 
             this.Engine = engine;

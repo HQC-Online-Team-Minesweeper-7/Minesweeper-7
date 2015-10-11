@@ -57,14 +57,18 @@
     <Compile Include="Commands\ShowStatisticCommand.cs" />
     <Compile Include="Data\FilePlayerMementoStorage.cs" />
     <Compile Include="Data\IPlayerMementoStorage.cs" />
-    <Compile Include="Engine.cs" />
+    <Compile Include="Engine.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="State\ExitState.cs" />
     <Compile Include="State\FailState.cs" />
     <Compile Include="State\MoveState.cs" />
     <Compile Include="State\ShowStatisticState.cs" />
     <Compile Include="State\StartState.cs" />
-    <Compile Include="State\State.cs" />
+    <Compile Include="State\State.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="State\SuccessState.cs" />
     <Compile Include="Statistic\IStatistic.cs" />
     <Compile Include="Statistic\IStatisticStorage.cs" />
@@ -74,7 +78,9 @@
     <Compile Include="Statistic\Player\PlayerBackwardComparer.cs" />
     <Compile Include="Statistic\Player\PlayerCaretaker.cs" />
     <Compile Include="Statistic\Player\PlayerMemento.cs" />
-    <Compile Include="Statistic\Statistic.cs" />
+    <Compile Include="Statistic\Statistic.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Statistic\StatisticFactory.cs" />
     <Compile Include="Statistic\StatisticStorage.cs" />
     <Compile Include="Statistic\StatisticStorageDummy.cs" />

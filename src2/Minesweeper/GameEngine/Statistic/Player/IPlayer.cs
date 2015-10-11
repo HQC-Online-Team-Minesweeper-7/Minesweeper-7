@@ -7,6 +7,7 @@
         int Score { get; set; }
 
         PlayerMemento StoreToMemento();
+
         void RestoreFromMemento(PlayerMemento memento);
     }
 }

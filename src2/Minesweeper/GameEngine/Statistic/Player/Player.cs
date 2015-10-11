@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameEngine.Statistic.Player
+﻿namespace GameEngine.Statistic.Player
 {
+    using System;
+
     public class Player : IPlayer
     {
         private string name;
         private int score;
 
-        public Player(string name,int score =0)
+        public Player(string name, int score = 0)
         {
             this.Name = name;
             this.Score = score;
@@ -23,9 +19,10 @@ namespace GameEngine.Statistic.Player
             {
                 return this.name;
             }
+
             private set
             {
-                if(string.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("name is invalid");
                 }
@@ -40,6 +37,7 @@ namespace GameEngine.Statistic.Player
             {
                 return this.score;
             }
+
             set
             {
                 if (value < 0)

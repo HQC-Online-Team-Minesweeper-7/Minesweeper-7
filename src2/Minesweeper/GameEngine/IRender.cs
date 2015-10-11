@@ -1,9 +1,9 @@
-﻿using GameEngine.Board;
-using GameEngine.Commands;
-using GameEngine.Statistic;
-
-namespace GameEngine
+﻿namespace GameEngine
 {
+    using GameEngine.Board;
+    using GameEngine.Commands;
+    using GameEngine.Statistic;
+
     public interface IRender
     {
         void ShowWelcomeScreen();

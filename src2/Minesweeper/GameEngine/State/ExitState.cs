@@ -5,7 +5,7 @@
     internal class ExitState : State
     {
         public ExitState(Engine engine)
-            :base(engine)
+            : base(engine)
         {
         }
 

@@ -9,7 +9,7 @@
 
         public PlayerCaretaker(IPlayerMementoStorage playerStorage)
         {
-            PlayerStorage = playerStorage;
+            this.PlayerStorage = playerStorage;
         }
 
         public IPlayerMementoStorage PlayerStorage
@@ -18,17 +18,18 @@
             {
                 return this.playerStorage;
             }
+
             set
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("playerStorage");
+                    throw new ArgumentNullException(nameof(value), "playerStorage");
                 }
 
-                if(this.playerStorage != null && value != this.playerStorage)
+                if (this.playerStorage != null && value != this.playerStorage)
                 {
                     foreach (var playerMemento in this.playerStorage)
-                    { 
+                    {
                         value.Add(playerMemento);
                     }
                 }
@@ -39,9 +40,9 @@
 
         public void AddMemento(PlayerMemento playerMemento)
         {
-            if(playerMemento == null)
+            if (playerMemento == null)
             {
-                throw new ArgumentNullException("playerMemento");
+                throw new ArgumentNullException(nameof(playerMemento));
             }
 
             this.PlayerStorage.Add(playerMemento);

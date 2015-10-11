@@ -1,17 +1,17 @@
 ﻿namespace GameEngine
 {
-    using Commands;
     using System;
+    using Commands;
 
     public class CommandFactory
     {
-        internal Engine Engine;
+        private Engine Engine;
 
         internal CommandFactory(Engine engine)
         {
             if (engine == null)
             {
-                throw new ArgumentNullException("engine");
+                throw new ArgumentNullException(nameof(engine));
             }
 
             this.Engine = engine;

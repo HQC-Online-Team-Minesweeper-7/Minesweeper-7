@@ -8,9 +8,9 @@
 
         public FieldWrapper(Field field)
         {
-            if(field == null)
+            if (field == null)
             {
-                throw new ArgumentNullException("field");
+                throw new ArgumentNullException(nameof(field));
             }
 
             this.Field = field;

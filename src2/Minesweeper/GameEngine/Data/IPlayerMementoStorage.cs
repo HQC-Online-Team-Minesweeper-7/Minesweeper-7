@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using GameEngine.Statistic.Player;
-
-namespace GameEngine.Data
+﻿namespace GameEngine.Data
 {
+    using System.Collections.Generic;
+    using GameEngine.Statistic.Player;
+
     public interface IPlayerMementoStorage : IEnumerable<PlayerMemento>
     {
         void Add(PlayerMemento player);

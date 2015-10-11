@@ -1,9 +1,11 @@
 ﻿namespace GameEngine.Board
 {
-    using Field;
     using System;
+
     using System.Collections;
     using System.Collections.Generic;
+
+    using Field;
 
     public class BoardRow : IBoardRow
     {
@@ -15,7 +17,7 @@
         {
             if (countOfColumn < 1)
             {
-                throw new ArgumentOutOfRangeException("count of column is invalid");
+                throw new ArgumentOutOfRangeException(nameof(countOfColumn), "count of column is invalid");
             }
 
             this.CountOfColumn = countOfColumn;
@@ -28,6 +30,7 @@
             {
                 return this.row[column];
             }
+
             set
             {
                 this.row[column] = value;

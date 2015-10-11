@@ -1,31 +1,32 @@
-﻿using GameEngine.Board.Field;
-using System;
-
-namespace GameEngine.Board
+﻿namespace GameEngine.Board
 {
+    using System;
+
+    using GameEngine.Board.Field;
+
     public class BoardBuilder
     {
         public readonly int RowCount;
         public readonly int ColumnCount;
 
-        private Board Board;
+        private Board board;
 
         public BoardBuilder(int rowCount, int columnCount)
         {
             if (rowCount < 1)
             {
-                throw new ArgumentOutOfRangeException("rowCount");
+                throw new ArgumentOutOfRangeException(nameof(rowCount));
             }
 
             if (columnCount < 1)
             {
-                throw new ArgumentOutOfRangeException("columnCount");
+                throw new ArgumentOutOfRangeException(nameof(columnCount));
             }
 
             this.RowCount = rowCount;
             this.ColumnCount = columnCount;
 
-            this.Board = new Board(RowCount, ColumnCount);
+            this.board = new Board(this.RowCount, this.ColumnCount);
         }
 
         public Board Generate(int mineCount)
@@ -35,9 +36,9 @@ namespace GameEngine.Board
                 throw new ArgumentException("invalid mine count");
             }
 
-            FieldFactory fieldFactory = new FieldFactory();
+            var fieldFactory = new FieldFactory();
             int countOfPlacedMine = 0;
-            Random chanceToMine = new Random();
+            var chanceToMine = new Random();
 
             while (mineCount > countOfPlacedMine)
             {
@@ -58,7 +59,7 @@ namespace GameEngine.Board
                         int randomNumber = chanceToMine.Next(0, 2);
                         if (randomNumber == 1)
                         {
-                            this.Board[rowIndex, columnIndex] = fieldFactory.GetField(Field.Field.MINE_CONTENT);
+                            this.board[rowIndex, columnIndex] = fieldFactory.GetField(Field.Field.MineContent);
                             countOfPlacedMine++;
                         }
                     }
@@ -69,17 +70,17 @@ namespace GameEngine.Board
             {
                 for (int columnIndex = 0; columnIndex < this.ColumnCount; columnIndex++)
                 {
-                    if (this.Board[rowIndex, columnIndex] != null)
+                    if (this.board[rowIndex, columnIndex] != null)
                     {
                         continue;
                     }
 
-                    int neighbourMinesCount = GetNeighbourMinesCount(rowIndex, columnIndex);
-                    this.Board[rowIndex, columnIndex] = fieldFactory.GetField(neighbourMinesCount);
+                    int neighbourMinesCount = this.GetNeighbourMinesCount(rowIndex, columnIndex);
+                    this.board[rowIndex, columnIndex] = fieldFactory.GetField(neighbourMinesCount);
                 }
             }
 
-            return this.Board;
+            return this.board;
         }
 
         private int GetNeighbourMinesCount(int row, int col)
@@ -98,7 +99,7 @@ namespace GameEngine.Board
                     continue;
                 }
 
-                var field = this.Board[currentNeighbourRow, currentNeighbourCol];
+                var field = this.board[currentNeighbourRow, currentNeighbourCol];
 
                 if (field != null && field.IsMine)
                 {

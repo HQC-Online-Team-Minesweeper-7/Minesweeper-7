@@ -6,9 +6,9 @@
     internal class RestartCommand : Command
     {
         public RestartCommand(Engine engine)
-            :base(engine)
+            : base(engine)
         {
-            base.Engine.State = new StartState(base.Engine);
+            Engine.State = new StartState(Engine);
         }
     }
 }

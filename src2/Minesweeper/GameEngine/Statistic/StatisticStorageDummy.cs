@@ -1,8 +1,6 @@
 ﻿namespace GameEngine.Statistic
 {
-    using Data;
-
-    class StatisticStorageDummy : IStatisticStorage
+    internal class StatisticStorageDummy : IStatisticStorage
     {
         public IStatistic Restore()
         {

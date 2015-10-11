@@ -8,6 +8,7 @@
         IComparer<IPlayer> BackComparer { get; set; }
 
         void Add(IPlayer player);
+
         void Remove(IPlayer player);
 
         void Clear();

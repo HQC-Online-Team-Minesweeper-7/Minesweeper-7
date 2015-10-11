@@ -1,13 +1,13 @@
-﻿using GameEngine.State;
-
-namespace GameEngine.Commands
+﻿namespace GameEngine.Commands
 {
+    using GameEngine.State;
+
     internal class ExitCommand : Command
     {
         public ExitCommand(Engine engine)
-            :base(engine)
+            : base(engine)
         {
-            base.Engine.State = new ExitState(base.Engine);
+            Engine.State = new ExitState(Engine);
         }
     }
 }

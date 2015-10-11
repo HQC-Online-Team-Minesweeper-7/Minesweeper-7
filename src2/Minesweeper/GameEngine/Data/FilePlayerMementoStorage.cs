@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using GameEngine.Statistic.Player;
-
-namespace GameEngine.Data
+﻿namespace GameEngine.Data
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.IO;
+    using GameEngine.Statistic.Player;
+
     public class FilePlayerMementoStorage : IPlayerMementoStorage
     {
         public readonly string Filename;
@@ -25,7 +25,7 @@ namespace GameEngine.Data
             using (FileStream fileStream = new FileStream(this.Filename, FileMode.OpenOrCreate))
             {
                 fileStream.Position = fileStream.Length;
-                StreamWriter writer = new StreamWriter(fileStream);
+                var writer = new StreamWriter(fileStream);
                 writer.AutoFlush = true;
 
                 writer.WriteLine(string.Format("{0};{1}", player.Name, player.Score));
@@ -37,7 +37,7 @@ namespace GameEngine.Data
             using (FileStream fileStream = new FileStream(this.Filename, FileMode.OpenOrCreate))
             {
                 fileStream.Position = fileStream.Length;
-                StreamReader reader = new StreamReader(fileStream);
+                var reader = new StreamReader(fileStream);
 
                 for (int i = 0; i < index; i++)
                 {
@@ -59,7 +59,7 @@ namespace GameEngine.Data
             using (FileStream fileStream = new FileStream(this.Filename, FileMode.OpenOrCreate))
             {
                 fileStream.Position = fileStream.Length;
-                StreamReader reader = new StreamReader(fileStream);
+                var reader = new StreamReader(fileStream);
 
                 while (reader.EndOfStream)
                 {

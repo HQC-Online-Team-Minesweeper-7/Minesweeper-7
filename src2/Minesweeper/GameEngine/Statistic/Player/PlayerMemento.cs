@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GameEngine.Statistic.Player
+﻿namespace GameEngine.Statistic.Player
 {
     public class PlayerMemento
     {

@@ -3,21 +3,21 @@
     using System;
     using Data;
 
-    class StatisticStorage : IStatisticStorage
+    internal class StatisticStorage : IStatisticStorage
     {
         public readonly IStatisticFactory Factory;
         public readonly IPlayerMementoStorage PlayerMementoStorage;
 
         public StatisticStorage(IStatisticFactory factory, IPlayerMementoStorage playerMementoStorage)
         {
-            if(factory == null)
+            if (factory == null)
             {
-                throw new ArgumentNullException("factory");
+                throw new ArgumentNullException(nameof(factory));
             }
 
             if (playerMementoStorage == null)
             {
-                throw new ArgumentNullException("playerMementoStorage");
+                throw new ArgumentNullException(nameof(playerMementoStorage));
             }
 
             this.Factory = factory;
@@ -39,7 +39,7 @@
 
         public void Save(IStatistic statistic)
         {
-            foreach(var player in statistic)
+            foreach (var player in statistic)
             {
                 this.PlayerMementoStorage.Add(player.StoreToMemento());
             }

@@ -1,10 +1,10 @@
-﻿using GameEngine.Board;
-using GameEngine.State;
-using GameEngine.Statistic;
-using System;
-
-namespace GameEngine
+﻿namespace GameEngine
 {
+    using System;
+
+    using GameEngine.State;
+    using GameEngine.Statistic;
+
     public class Engine
     {
         public readonly IRender Render;
@@ -25,17 +25,17 @@ namespace GameEngine
         {
             if (render == null)
             {
-                throw new ArgumentNullException("render");
+                throw new ArgumentNullException(nameof(render));
             }
 
             if (statisticFactory == null)
             {
-                throw new ArgumentNullException("statisticFactory");
+                throw new ArgumentNullException(nameof(statisticFactory));
             }
 
             if (statisticStorage == null)
             {
-                throw new ArgumentNullException("statisticStorage");
+                throw new ArgumentNullException(nameof(statisticStorage));
             }
 
             this.Render = render;
@@ -44,7 +44,7 @@ namespace GameEngine
 
             this.State = new StartState(this);
             this.CommandFactory = new CommandFactory(this);
-            this.Statistic = StatisticFactory.CreateStatistic();
+            this.Statistic = this.StatisticFactory.CreateStatistic();
         }
 
         public Engine(IRender render)

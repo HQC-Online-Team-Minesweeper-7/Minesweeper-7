@@ -1,14 +1,14 @@
-﻿using GameEngine.State;
-
-namespace GameEngine.Commands
+﻿namespace GameEngine.Commands
 {
+    using GameEngine.State;
+
     internal class ShowStatisticCommand : Command
     {
         public ShowStatisticCommand(Engine engine)
-            :base(engine)
+            : base(engine)
         {
-            base.Engine.State = new ShowStatisticState(base.Engine);
-            base.Engine.Play();
+            Engine.State = new ShowStatisticState(Engine);
+            Engine.Play();
         }
     }
 }

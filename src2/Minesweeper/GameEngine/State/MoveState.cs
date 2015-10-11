@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace GameEngine.State
+﻿namespace GameEngine.State
 {
+    using System;
+
     internal class MoveState : State
     {
         public readonly int X;
@@ -26,13 +26,13 @@ namespace GameEngine.State
 
                 if (field.IsMine)
                 {
-                    base.Engine.State = new FailState(Engine);
-                    base.Engine.Play();
+                    Engine.State = new FailState(Engine);
+                    Engine.Play();
                 }
                 else if (board.IsAllView)
                 {
-                    base.Engine.State = new SuccessState(Engine);
-                    base.Engine.Play();
+                    Engine.State = new SuccessState(Engine);
+                    Engine.Play();
                 }
             }
             else
@@ -40,7 +40,7 @@ namespace GameEngine.State
                 render.ShowInvalidMoveMessage();
             }
 
-            base.Engine.CountOfMove++;
+            Engine.CountOfMove++;
             render.ShowBoard(this.Engine.Board);
             var command = render.SetCommand(this.Engine.CommandFactory);
             command.Execute();

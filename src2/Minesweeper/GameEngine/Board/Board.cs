@@ -1,12 +1,12 @@
-﻿using System.Net.NetworkInformation;
-
-namespace GameEngine.Board
+﻿namespace GameEngine.Board
 {
-    using Field;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net.NetworkInformation;
+
+    using Field;
 
     public class Board : IBoard
     {
@@ -19,12 +19,12 @@ namespace GameEngine.Board
         {
             if (rowCount < 1)
             {
-                throw new ArgumentOutOfRangeException("rowCount");
+                throw new ArgumentOutOfRangeException(nameof(rowCount));
             }
 
             if (columnCount < 1)
             {
-                throw new ArgumentOutOfRangeException("columnCount");
+                throw new ArgumentOutOfRangeException(nameof(columnCount));
             }
 
             this.RowCount = rowCount;
@@ -52,6 +52,7 @@ namespace GameEngine.Board
             {
                 return this.rows[row][column];
             }
+
             set
             {
                 this.rows[row][column] = value;

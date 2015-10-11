@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-
-namespace GameEngine.Board
+﻿namespace GameEngine.Board
 {
+    using System.Collections.Generic;
+
     public interface IBoard : IEnumerable<IBoardRow>
     {
     }

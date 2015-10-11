@@ -4,13 +4,13 @@
 
     public class Field
     {
-        public const int MINE_CONTENT = -1;
+        public const int MineContent = -1;
 
         public Field(int content)
         {
-            if (content < MINE_CONTENT || 8 < content)
+            if (content < MineContent || 8 < content)
             {
-                throw  new ArgumentOutOfRangeException("content is invalid");
+                throw new ArgumentOutOfRangeException(nameof(content), "content is invalid");
             }
 
             this.Content = content;
@@ -22,7 +22,7 @@
         {
             get
             {
-                return Content == MINE_CONTENT;
+                return this.Content == MineContent;
             }
         }
 

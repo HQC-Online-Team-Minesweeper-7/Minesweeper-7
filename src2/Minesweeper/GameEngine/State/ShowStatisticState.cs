@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameEngine.State
+﻿namespace GameEngine.State
 {
     internal class ShowStatisticState : State
     {
         public ShowStatisticState(Engine engine)
-            :base(engine)
+            : base(engine)
         {
         }
 

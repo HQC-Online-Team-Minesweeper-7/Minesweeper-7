@@ -11,22 +11,22 @@
 
         public override void Play()
         {
-            var render = base.Engine.Render;
-            render.ShowBoard(base.Engine.Board);
-            render.ShowFailScreen(base.Engine.CountOfMove);
+            var render = Engine.Render;
+            render.ShowBoard(Engine.Board);
+            render.ShowFailScreen(Engine.CountOfMove);
 
-            if (base.Engine.CountOfMove > 0)
+            if (Engine.CountOfMove > 0)
             {
                 var name = render.SetName();
-                var player = base.Engine.StatisticFactory.CreatePlayer(name, base.Engine.CountOfMove);
-                var statistic = base.Engine.Statistic;
+                var player = Engine.StatisticFactory.CreatePlayer(name, Engine.CountOfMove);
+                var statistic = Engine.Statistic;
                 statistic.Add(player);
-                base.Engine.StatisticStorage.Save(statistic);
+                Engine.StatisticStorage.Save(statistic);
                 render.ShowHighScore(statistic);
             }
 
-            base.Engine.State = new StartState(base.Engine);
-            base.Engine.Play();
+            Engine.State = new StartState(Engine);
+            Engine.Play();
         }
     }
 }
