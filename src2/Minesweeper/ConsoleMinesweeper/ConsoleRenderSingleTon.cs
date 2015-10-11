@@ -120,7 +120,7 @@ namespace ConsoleMinesweeper
                 return this.SetCommand(commandFactory);
             }
 
-            return commandFactory.CreateMoveCommand(rowInput, columnInput);
+            return commandFactory.CreateMoveCommand(columnInput, rowInput);
         }
 
         /// <summary>

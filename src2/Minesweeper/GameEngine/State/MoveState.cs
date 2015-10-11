@@ -49,7 +49,7 @@ namespace GameEngine.State
 
             if (board.IsCorrectPosition(this.X, this.Y))
             {
-                var field = board[this.X, this.Y];
+                var field = board[this.Y, this.X];
                 field.IsView = true;
 
                 if (field.IsMine)
