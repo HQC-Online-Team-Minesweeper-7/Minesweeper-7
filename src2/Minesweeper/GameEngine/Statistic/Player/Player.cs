@@ -1,7 +1,18 @@
-﻿namespace GameEngine.Statistic.Player
+﻿// ----------------------------------------------------------------------
+// <copyright file="Player.cs" company="Telerik Academy">
+//   Teamwork Project "Minesweeper-7"
+// </copyright>
+// <summary>
+// The player.
+// </summary>
+// ----------------------------------------------------------------------
+namespace GameEngine.Statistic.Player
 {
     using System;
 
+    /// <summary>
+    /// The player.
+    /// </summary>
     public class Player : IPlayer
     {
         private string name;

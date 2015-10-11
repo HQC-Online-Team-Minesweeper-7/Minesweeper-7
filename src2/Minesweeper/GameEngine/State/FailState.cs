@@ -1,14 +1,32 @@
-﻿namespace GameEngine.State
+﻿// ----------------------------------------------------------------------
+// <copyright file="FailState.cs" company="Telerik Academy">
+//   Teamwork Project "Minesweeper-7"
+// </copyright>
+// <summary>
+// The fail state.
+// </summary>
+// ----------------------------------------------------------------------
+namespace GameEngine.State
 {
     using System;
 
+    /// <summary>
+    /// The fail state.
+    /// </summary>
     internal class FailState : State
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FailState"/> class.
+        /// </summary>
+        /// <param name="engine">The engine.</param>
         public FailState(Engine engine)
             : base(engine)
         {
         }
 
+        /// <summary>
+        /// Override the play.
+        /// </summary>
         public override void Play()
         {
             var render = Engine.Render;
