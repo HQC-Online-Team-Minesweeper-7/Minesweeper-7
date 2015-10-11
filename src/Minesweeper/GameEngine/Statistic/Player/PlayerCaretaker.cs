@@ -79,7 +79,7 @@ namespace GameEngine.Statistic.Player
         /// Restore from memento.
         /// </summary>
         /// <param name="index">The index.</param>
-        /// <returns>The <see cref="FieldWrapper"/>.</returns>
+        /// <returns>The <see cref="PlayerMemento"/>.</returns>
         public PlayerMemento GetMemento(int index)
         {
             return this.PlayerStorage.Get(index);

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsoleMinesweeper</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleMinesweeper.ConsoleRenderSingleton">
+            <summary>
+            Console renderer use Singleton.
+            </summary>
+        </member>
+        <member name="F:ConsoleMinesweeper.ConsoleRenderSingleton.instance">
+            <summary>
+            The IRender.
+            </summary>
+        </member>
+        <member name="F:ConsoleMinesweeper.ConsoleRenderSingleton.fieldVisualator">
+            <summary>
+            The field visualizer.
+            </summary>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ConsoleMinesweeper.ConsoleRenderSingleton"/> class.
+            </summary>
+        </member>
+        <member name="P:ConsoleMinesweeper.ConsoleRenderSingleton.Instance">
+            <summary>
+            Gets IRender instance.
+            </summary>
+            <value>The IRender instance.</value>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.Exit">
+            <summary>
+            Use Exit commands.
+            </summary>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.SetCommand(GameEngine.CommandFactory)">
+            <summary>
+            Use commands.
+            </summary>
+            <param name="commandFactory">
+            The console command.
+            </param>
+            <returns>
+            The <see cref="T:GameEngine.Commands.Command"/>.
+            </returns>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.SetName">
+            <summary>
+            Enter name for player.
+            </summary>
+            <returns>The <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.ShowBoard(GameEngine.Board.IBoard)">
+            <summary>
+            Show game board.
+            </summary>
+            <param name="board">The board.</param>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.ShowFailScreen(System.Int32)">
+            <summary>
+            Show fill screen.
+            </summary>
+            <param name="countOfOpenField">The count of open field.</param>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.ShowHighScore(GameEngine.Statistic.IStatistic)">
+            <summary>
+            Show scoreboard.
+            </summary>
+            <param name="statistic">The statistic.</param>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.ShowInvalidMoveMessage">
+            <summary>
+            Show invalid move message.
+            </summary>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.ShowSuccessScreen">
+            <summary>
+            Show success screen.
+            </summary>
+        </member>
+        <member name="M:ConsoleMinesweeper.ConsoleRenderSingleton.ShowWelcomeScreen">
+            <summary>
+            Show welcome screen.
+            </summary>
+        </member>
+        <member name="T:ConsoleMinesweeper.FieldVisualator">
+            <summary>
+            The field visualizer.
+            </summary>
+        </member>
+        <member name="F:ConsoleMinesweeper.FieldVisualator.fields">
+            <summary>
+            The fields.
+            </summary>
+        </member>
+        <member name="M:ConsoleMinesweeper.FieldVisualator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ConsoleMinesweeper.FieldVisualator"/> class.
+            </summary>
+        </member>
+        <member name="M:ConsoleMinesweeper.FieldVisualator.GetUIElement(System.Int32)">
+            <summary>
+            Gets UI elements.
+            </summary>
+            <param name="content">Gets symbols.</param>
+            <returns> The <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:ConsoleMinesweeper.Program">
+            <summary>
+            The console game.
+            </summary>
+        </member>
+        <member name="M:ConsoleMinesweeper.Program.Main">
+            <summary>
+            The main program.
+            </summary>
+        </member>
+    </members>
+</doc>

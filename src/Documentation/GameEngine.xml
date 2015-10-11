@@ -1,0 +1,1051 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameEngine</name>
+    </assembly>
+    <members>
+        <member name="T:GameEngine.Board.Board">
+            <summary>
+            The board.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.Board.RowCount">
+            <summary>
+            The RowCount.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.Board.ColumnCount">
+            <summary>
+            The ColumnCount.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.Board.rows">
+            <summary>
+            The board row.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Board.Board.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Board.Board"/> class.
+            </summary>
+            <param name="rowCount">The row counter.</param>
+            <param name="columnCount">The column counter.</param>
+        </member>
+        <member name="P:GameEngine.Board.Board.IsAllView">
+            <summary>
+            Gets a value indicating whether is all view.
+            </summary>
+            <value>Get is all view.</value>       
+        </member>
+        <member name="P:GameEngine.Board.Board.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets a value indicating whether is field wrapper.
+            </summary>
+            <param name="row">The rows...</param>
+            <param name="column">The columns.</param>
+            <returns>The <see cref="T:GameEngine.Board.Field.FieldWrapper"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Board.Board.IsCorrectPosition(System.Int32,System.Int32)">
+            <summary>
+            Check the correct position.
+            </summary>
+            <param name="x">The x position.</param>
+            <param name="y">The y position.</param>
+            <returns>Is correct position <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Board.Board.GetEnumerator">
+            <summary>
+            The enumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Board.Board.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            The enumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Board.BoardBuilder">
+            <summary>
+            The board builder.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.BoardBuilder.RowCount">
+            <summary>
+            The RowCount.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.BoardBuilder.ColumnCount">
+            <summary>
+            The ColumnCount.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.BoardBuilder.board">
+            <summary>
+            The board.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Board.BoardBuilder.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Board.BoardBuilder"/> class.
+            </summary>
+            <param name="rowCount">The row counter.</param>
+            <param name="columnCount">The column counter.</param>
+        </member>
+        <member name="M:GameEngine.Board.BoardBuilder.Generate(System.Int32)">
+            <summary>
+            The board generator.
+            </summary>
+            <param name="mineCount">The mines counter.</param>
+            <returns>The <see cref="T:GameEngine.Board.Board"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Board.BoardBuilder.GetNeighbourMinesCount(System.Int32,System.Int32)">
+            <summary>
+            Count neighbor mines.
+            </summary>
+            <param name="row">The rows...</param>
+            <param name="col">The columns.</param>
+            <returns>The <see cref="T:GameEngine.Board.Board"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Board.BoardRow">
+            <summary>
+            The board row.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.BoardRow.CountOfColumn">
+            <summary>
+            The count of columns.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.BoardRow.row">
+            <summary>
+            The field wrapper row. 
+            </summary>
+        </member>
+        <member name="M:GameEngine.Board.BoardRow.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Board.BoardRow"/> class.
+            </summary>
+            <param name="countOfColumn">The count of column.</param>
+        </member>
+        <member name="P:GameEngine.Board.BoardRow.Item(System.Int32)">
+            <summary>
+            The field wrapper.
+            </summary>
+            <param name="column">The column.</param>
+            <returns>The <see cref="T:GameEngine.Board.Field.FieldWrapper"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Board.BoardRow.GetEnumerator">
+            <summary>
+            The IEnumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Board.BoardRow.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            The IEnumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Board.Field.Field">
+            <summary>
+            The console field.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.Field.Field.MineContent">
+            <summary>
+            The constants.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Board.Field.Field.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Board.Field.Field"/> class.
+            </summary>
+            <param name="content">The field content.</param>
+        </member>
+        <member name="P:GameEngine.Board.Field.Field.Content">
+            <summary>
+            Gets a value indicating whether is content.
+            </summary>
+            <value>The content.</value>
+        </member>
+        <member name="P:GameEngine.Board.Field.Field.IsMine">
+            <summary>
+            Gets a value indicating whether is mine.
+            </summary>
+            <value>Gets the mine.</value>
+        </member>
+        <member name="P:GameEngine.Board.Field.Field.IsView">
+            <summary>
+            Gets or sets a value indicating whether is view.
+            </summary>
+            <value>The view...</value>
+        </member>
+        <member name="T:GameEngine.Board.Field.FieldWrapper">
+            <summary>
+            The field wrapper.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.Field.FieldWrapper.Field">
+            <summary>
+            The field.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Board.Field.FieldWrapper.#ctor(GameEngine.Board.Field.Field)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Board.Field.FieldWrapper"/> class.
+            </summary>
+            <param name="field">The field.</param>
+        </member>
+        <member name="P:GameEngine.Board.Field.FieldWrapper.Content">
+            <summary>
+            Gets a value indicating whether is content.
+            </summary>
+            <value>The content.</value>
+        </member>
+        <member name="P:GameEngine.Board.Field.FieldWrapper.IsMine">
+            <summary>
+            Gets a value indicating whether is mine.
+            </summary>
+            <value>Gets the mine.</value>
+        </member>
+        <member name="P:GameEngine.Board.Field.FieldWrapper.IsView">
+            <summary>
+            Gets or sets a value indicating whether is view.
+            </summary>
+            <value>The view...</value>
+        </member>
+        <member name="T:GameEngine.Board.Field.FieldFactory">
+            <summary>
+            The field factory.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Board.Field.FieldFactory.Fields">
+            <summary>
+            The fields.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Board.Field.FieldFactory.GetField(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Board.Field.FieldFactory"/> class.
+            </summary>
+            <param name="content">The field content.</param>
+            <returns>The <see cref="T:GameEngine.Board.Field.FieldWrapper"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Board.Field.IField">
+            <summary>
+            The field interface.
+            </summary>
+        </member>
+        <member name="P:GameEngine.Board.Field.IField.Content">
+            <summary>
+            Gets a value indicating whether is content.
+            </summary>
+            <value>Get the content.</value>
+        </member>
+        <member name="P:GameEngine.Board.Field.IField.IsMine">
+            <summary>
+            Gets a value indicating whether is mine.
+            </summary>
+            <value>Get the mine.</value>
+        </member>
+        <member name="P:GameEngine.Board.Field.IField.IsView">
+            <summary>
+            Gets a value indicating whether is view.
+            </summary>
+            <value>Get the view.</value>
+        </member>
+        <member name="T:GameEngine.Board.IBoard">
+            <summary>
+            The board interface.
+            </summary>
+        </member>
+        <member name="T:GameEngine.Board.IBoardRow">
+            <summary>
+            The board row interface.
+            </summary>
+        </member>
+        <member name="T:GameEngine.CommandFactory">
+            <summary>
+            The command factory.
+            </summary>
+        </member>
+        <member name="F:GameEngine.CommandFactory.engine">
+            <summary>
+            The engine.
+            </summary>
+        </member>
+        <member name="M:GameEngine.CommandFactory.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.CommandFactory"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.CommandFactory.CreateRestartCommand">
+            <summary>
+            Create restart command.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Commands.Command"/>.</returns>
+        </member>
+        <member name="M:GameEngine.CommandFactory.CreateExitCommand">
+            <summary>
+            Create exit command.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Commands.Command"/>.</returns>
+        </member>
+        <member name="M:GameEngine.CommandFactory.CreateMoveCommand(System.Int32,System.Int32)">
+            <summary>
+            Create move command.
+            </summary>
+            <param name="x">The x position.</param>
+            <param name="y">The y position.</param>
+            <returns>The <see cref="T:GameEngine.Commands.Command"/>.</returns>
+        </member>
+        <member name="M:GameEngine.CommandFactory.CreateShowStatistiCommand">
+            <summary>
+            Create statistic command.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Commands.Command"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Commands.Command">
+            <summary>
+            The commands.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Commands.Command.Engine">
+            <summary>
+            The engine.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Commands.Command.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Commands.Command"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.Commands.Command.Execute">
+            <summary>
+            The execute.
+            </summary>
+        </member>
+        <member name="T:GameEngine.Commands.ExitCommand">
+            <summary>
+            The exit commands.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Commands.ExitCommand.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Commands.ExitCommand"/> class.
+            </summary>
+            <param name="engine">The engine state.</param>
+        </member>
+        <member name="T:GameEngine.Commands.MoveCommand">
+            <summary>
+            The move commands.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Commands.MoveCommand.X">
+            <summary>
+            The x position.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Commands.MoveCommand.Y">
+            <summary>
+            The y position.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Commands.MoveCommand.#ctor(GameEngine.Engine,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Commands.MoveCommand"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+            <param name="x">The x position.</param>
+            <param name="y">The y position.</param>
+        </member>
+        <member name="T:GameEngine.Commands.RestartCommand">
+            <summary>
+            The restart command.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Commands.RestartCommand.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Commands.RestartCommand"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="T:GameEngine.Commands.ShowStatisticCommand">
+            <summary>
+            The statistic command.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Commands.ShowStatisticCommand.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Commands.ShowStatisticCommand"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="T:GameEngine.Data.FilePlayerMementoStorage">
+            <summary>
+            The player memento storage.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Data.FilePlayerMementoStorage.Filename">
+            <summary>
+            The file name.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Data.FilePlayerMementoStorage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Data.FilePlayerMementoStorage"/> class.
+            </summary>
+            <param name="filename">The file name.</param>
+        </member>
+        <member name="M:GameEngine.Data.FilePlayerMementoStorage.Add(GameEngine.Statistic.Player.PlayerMemento)">
+            <summary>
+            Add the players.
+            </summary>
+            <param name="player">The players.</param>
+        </member>
+        <member name="M:GameEngine.Data.FilePlayerMementoStorage.Get(System.Int32)">
+            <summary>
+            Gets players.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The <see cref="T:GameEngine.Statistic.Player.PlayerMemento"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Data.FilePlayerMementoStorage.GetEnumerator">
+            <summary>
+            The IEnumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Data.FilePlayerMementoStorage.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            The IEnumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Data.IPlayerMementoStorage">
+            <summary>
+            The player memento storage interface.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Data.IPlayerMementoStorage.Add(GameEngine.Statistic.Player.PlayerMemento)">
+            <summary>
+            Add players.
+            </summary>
+            <param name="player">The player.</param>
+        </member>
+        <member name="M:GameEngine.Data.IPlayerMementoStorage.Get(System.Int32)">
+            <summary>
+            Gets a value indicating whether is index.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The <see cref="T:GameEngine.Statistic.Player.PlayerMemento"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Engine">
+            <summary>
+            The Engine.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.Render">
+            <summary>
+            The Render.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.StatisticFactory">
+            <summary>
+            The statistic factory.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.StatisticStorage">
+            <summary>
+            The statistic storage.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.RowCount">
+            <summary>
+            The RowCount.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.ColumnCount">
+            <summary>
+            The ColumnCount.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.MineCount">
+            <summary>
+            The MineCount.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.CommandFactory">
+            <summary>
+            The CommandFactory.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Engine.Statistic">
+            <summary>
+            The Statistic.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Engine.#ctor(GameEngine.IRender,GameEngine.Statistic.IStatisticFactory,GameEngine.Statistic.IStatisticStorage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Engine"/> class.
+            </summary>
+            <param name="render">The render.</param>
+            <param name="statisticFactory">The statisticFactory.</param>
+            <param name="statisticStorage">The statisticStorage.</param>
+        </member>
+        <member name="M:GameEngine.Engine.#ctor(GameEngine.IRender)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Engine"/> class.
+            </summary>
+            <param name="render">The render.</param>
+        </member>
+        <member name="P:GameEngine.Engine.State">
+            <summary>
+            Gets or sets a value indicating whether is state.
+            </summary>
+        </member>
+        <member name="P:GameEngine.Engine.Board">
+            <summary>
+            Gets or sets a value indicating whether is board.
+            </summary>
+        </member>
+        <member name="P:GameEngine.Engine.CountOfMove">
+            <summary>
+            Gets or sets a value indicating whether is CountOfMove.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Engine.Play">
+            <summary>
+            The play...
+            </summary>
+        </member>
+        <member name="T:GameEngine.State.ExitState">
+            <summary>
+            The exit state.
+            </summary>
+        </member>
+        <member name="M:GameEngine.State.ExitState.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.State.ExitState"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.State.ExitState.Play">
+            <summary>
+            Override the play.
+            </summary>
+        </member>
+        <member name="T:GameEngine.State.FailState">
+            <summary>
+            The fail state.
+            </summary>
+        </member>
+        <member name="M:GameEngine.State.FailState.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.State.FailState"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.State.FailState.Play">
+            <summary>
+            Override the play.
+            </summary>
+        </member>
+        <member name="T:GameEngine.State.MoveState">
+            <summary>
+            The move state.
+            </summary>
+        </member>
+        <member name="F:GameEngine.State.MoveState.X">
+            <summary>
+            The x position.
+            </summary>
+        </member>
+        <member name="F:GameEngine.State.MoveState.Y">
+            <summary>
+            The y position.
+            </summary>
+        </member>
+        <member name="M:GameEngine.State.MoveState.#ctor(GameEngine.Engine,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.State.MoveState"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+            <param name="x">The x position.</param>
+            <param name="y">The y position.</param>
+        </member>
+        <member name="M:GameEngine.State.MoveState.Play">
+            <summary>
+            Override the play.
+            </summary>
+        </member>
+        <member name="T:GameEngine.State.ShowStatisticState">
+            <summary>
+            The statistic state.
+            </summary>
+        </member>
+        <member name="M:GameEngine.State.ShowStatisticState.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.State.ShowStatisticState"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.State.ShowStatisticState.Play">
+            <summary>
+            Override the play.
+            </summary>
+        </member>
+        <member name="T:GameEngine.State.StartState">
+            <summary>
+            The start state.
+            </summary>
+        </member>
+        <member name="M:GameEngine.State.StartState.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.State.StartState"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.State.StartState.Play">
+            <summary>
+            Override the play.
+            </summary>
+        </member>
+        <member name="T:GameEngine.State.State">
+            <summary>
+            The state.
+            </summary>
+        </member>
+        <member name="F:GameEngine.State.State.Engine">
+            <summary>
+            The engine.
+            </summary>
+        </member>
+        <member name="M:GameEngine.State.State.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.State.State"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.State.State.Play">
+            <summary>
+            Override the play.
+            </summary>
+        </member>
+        <member name="T:GameEngine.State.SuccessState">
+            <summary>
+            The success state.
+            </summary>
+        </member>
+        <member name="M:GameEngine.State.SuccessState.#ctor(GameEngine.Engine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.State.SuccessState"/> class.
+            </summary>
+            <param name="engine">The engine.</param>
+        </member>
+        <member name="M:GameEngine.State.SuccessState.Play">
+            <summary>
+            Override the play.
+            </summary>
+        </member>
+        <member name="T:GameEngine.Statistic.IStatistic">
+            <summary>
+            The statistic interface.
+            </summary>
+        </member>
+        <member name="P:GameEngine.Statistic.IStatistic.BackComparer">
+            <summary>
+            Gets or sets a value indicating whether is BackComparer.
+            </summary>
+            <value>Gets or sets BackComparer.</value>
+        </member>
+        <member name="M:GameEngine.Statistic.IStatistic.Add(GameEngine.Statistic.Player.IPlayer)">
+            <summary>
+            Add players.
+            </summary>
+            <param name="player">The player.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.IStatistic.Remove(GameEngine.Statistic.Player.IPlayer)">
+            <summary>
+            Remove players.
+            </summary>
+            <param name="player">The player.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.IStatistic.Clear">
+            <summary>
+            The clear.
+            </summary>
+        </member>
+        <member name="T:GameEngine.Statistic.IStatisticStorage">
+            <summary>
+            The statistic storage.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.IStatisticStorage.Save(GameEngine.Statistic.IStatistic)">
+            <summary>
+            The save...
+            </summary>
+            <param name="statistic">The statistic.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.IStatisticStorage.Restore">
+            <summary>
+            The restore.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Statistic.IStatistic"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Statistic.IStatisticFactory">
+            <summary>
+            The statistic factory.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.IStatisticFactory.CreateStatistic">
+            <summary>
+            Create statistic.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Statistic.IStatistic"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Statistic.IStatisticFactory.CreatePlayer(System.String,System.Int32)">
+            <summary>
+            Create player.
+            </summary>
+            <param name="name">The name...</param>
+            <param name="score">The score.</param>
+            <returns>The <see cref="T:GameEngine.Statistic.Player.IPlayer"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Statistic.Player.IPlayer">
+            <summary>
+            The player interface.
+            </summary>
+        </member>
+        <member name="P:GameEngine.Statistic.Player.IPlayer.Name">
+            <summary>
+            Gets a value indicating whether is name.
+            </summary>
+            <value>Get the name.</value>
+        </member>
+        <member name="P:GameEngine.Statistic.Player.IPlayer.Score">
+            <summary>
+            Gets or sets a value indicating whether is score.
+            </summary>
+            <value>Get or set score.</value>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.IPlayer.StoreToMemento">
+            <summary>
+            The store to memento.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Statistic.Player.PlayerMemento"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.IPlayer.RestoreFromMemento(GameEngine.Statistic.Player.PlayerMemento)">
+            <summary>
+            The restore from memento.
+            </summary>
+            <param name="memento">The memento.</param>
+        </member>
+        <member name="T:GameEngine.Statistic.Player.Player">
+            <summary>
+            The player.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.Player.Player.name">
+            <summary>
+            The name...
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.Player.Player.score">
+            <summary>
+            The score.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.Player.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Statistic.Player.Player"/> class.
+            </summary>
+            <param name="name">The name...</param>
+            <param name="score">The score.</param>
+        </member>
+        <member name="P:GameEngine.Statistic.Player.Player.Name">
+            <summary>
+            Gets a value indicating whether is name.
+            </summary>
+            <value>Get the name.</value>
+        </member>
+        <member name="P:GameEngine.Statistic.Player.Player.Score">
+            <summary>
+            Gets or sets a value indicating whether is score.
+            </summary>
+            <value>Get the score.</value>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.Player.RestoreFromMemento(GameEngine.Statistic.Player.PlayerMemento)">
+            <summary>
+            The restore player from memento.
+            </summary>
+            <param name="memento">The memento.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.Player.StoreToMemento">
+            <summary>
+            The store player to memento.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Statistic.Player.PlayerMemento"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Statistic.Player.PlayerBackwardComparer">
+            <summary>
+            The player backward comparer.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.PlayerBackwardComparer.Compare(GameEngine.Statistic.Player.IPlayer,GameEngine.Statistic.Player.IPlayer)">
+            <summary>
+            The compare players.
+            </summary>
+            <param name="x">The first player.</param>
+            <param name="y">The second player.</param>
+            <returns>The return <see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Statistic.Player.PlayerCaretaker">
+            <summary>
+            The player caretaker.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.Player.PlayerCaretaker.playerStorage">
+            <summary>
+            The players storage.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.PlayerCaretaker.#ctor(GameEngine.Data.IPlayerMementoStorage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Statistic.Player.PlayerCaretaker"/> class.
+            </summary>
+            <param name="playerStorage">The playersStorage.</param>
+        </member>
+        <member name="P:GameEngine.Statistic.Player.PlayerCaretaker.PlayerStorage">
+            <summary>
+            Gets or sets a value indicating whether is PlayerStorage.
+            </summary>
+            <value>Gets or sets stored players.</value>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.PlayerCaretaker.AddMemento(GameEngine.Statistic.Player.PlayerMemento)">
+            <summary>
+            Add to memento.
+            </summary>
+            <param name="playerMemento">The playerMemento.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.PlayerCaretaker.GetMemento(System.Int32)">
+            <summary>
+            Restore from memento.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The <see cref="!:FieldWrapper"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Statistic.Player.PlayerMemento">
+            <summary>
+            The player memento.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.Player.PlayerMemento.Name">
+            <summary>
+            The name...
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.Player.PlayerMemento.Score">
+            <summary>
+            The score.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.Player.PlayerMemento.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Statistic.Player.PlayerMemento"/> class.
+            </summary>
+            <param name="name">The name...</param>
+            <param name="score">The score.</param>
+        </member>
+        <member name="T:GameEngine.Statistic.Statistic">
+            <summary>
+            The statistic.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.Statistic.Players">
+            <summary>
+            The players.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.Statistic.backComparer">
+            <summary>
+            The back comparer.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.Statistic.#ctor(System.Collections.Generic.IComparer{GameEngine.Statistic.Player.IPlayer})">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Statistic.Statistic"/> class.
+            </summary>
+            <param name="backComparer">The back comparer.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.Statistic.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Statistic.Statistic"/> class.
+            </summary>
+        </member>
+        <member name="P:GameEngine.Statistic.Statistic.BackComparer">
+            <summary>
+            Gets or sets a value indicating whether is BackComparer.
+            </summary>
+            <value>Gets or sets BackComparer.</value>
+        </member>
+        <member name="M:GameEngine.Statistic.Statistic.Add(GameEngine.Statistic.Player.IPlayer)">
+            <summary>
+            Add player.
+            </summary>
+            <param name="player">The player.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.Statistic.Remove(GameEngine.Statistic.Player.IPlayer)">
+            <summary>
+            Remove player.
+            </summary>
+            <param name="player">The player.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.Statistic.Clear">
+            <summary>
+            The clear...
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.Statistic.GetEnumerator">
+            <summary>
+            The IEnumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Statistic.Statistic.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            The IEnumerator.
+            </summary>
+            <returns>The <see cref="T:System.Collections.IEnumerator"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Statistic.StatisticFactory">
+            <summary>
+            The statistic factory.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.StatisticFactory.CreatePlayer(System.String,System.Int32)">
+            <summary>
+            Create player.
+            </summary>
+            <param name="name">The name...</param>
+            <param name="score">The score.</param>
+            <returns>The <see cref="T:GameEngine.Statistic.Player.IPlayer"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Statistic.StatisticFactory.CreateStatistic">
+            <summary>
+            Create statistic.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Statistic.IStatistic"/>.</returns>
+        </member>
+        <member name="T:GameEngine.Statistic.StatisticStorage">
+            <summary>
+            The statistic storage.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.StatisticStorage.Factory">
+            <summary>
+            The factory.
+            </summary>
+        </member>
+        <member name="F:GameEngine.Statistic.StatisticStorage.PlayerMementoStorage">
+            <summary>
+            The player memento storage.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.StatisticStorage.#ctor(GameEngine.Statistic.IStatisticFactory,GameEngine.Data.IPlayerMementoStorage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GameEngine.Statistic.StatisticStorage"/> class.
+            </summary>
+            <param name="factory">The factory.</param>
+            <param name="playerMementoStorage">The playerMementoStorage.</param>
+        </member>
+        <member name="M:GameEngine.Statistic.StatisticStorage.Restore">
+            <summary>
+            Restore player.
+            </summary>
+            <returns>The <see cref="T:GameEngine.Statistic.IStatistic"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Statistic.StatisticStorage.Save(GameEngine.Statistic.IStatistic)">
+            <summary>
+            The save...
+            </summary>
+            <param name="statistic">The statistic.</param>
+        </member>
+        <member name="T:GameEngine.Statistic.StatisticStorageDummy">
+            <summary>
+            The statistic storage dummy.
+            </summary>
+        </member>
+        <member name="M:GameEngine.Statistic.StatisticStorageDummy.Restore">
+            <summary>
+            The restore statistic.
+            </summary>
+            <returns>The <see cref="M:GameEngine.Statistic.StatisticStorageDummy.Restore"/>.</returns>
+        </member>
+        <member name="M:GameEngine.Statistic.StatisticStorageDummy.Save(GameEngine.Statistic.IStatistic)">
+            <summary>
+            The save...
+            </summary>
+            <param name="statistic">The statistic.</param>
+        </member>
+        <member name="T:GameEngine.IRender">
+            <summary>
+            The IRender.
+            </summary>
+        </member>
+        <member name="M:GameEngine.IRender.ShowWelcomeScreen">
+            <summary>
+            The welcome screen.
+            </summary>
+        </member>
+        <member name="M:GameEngine.IRender.ShowBoard(GameEngine.Board.IBoard)">
+            <summary>
+            The show board.
+            </summary>
+            <param name="board">The board.</param>
+        </member>
+        <member name="M:GameEngine.IRender.SetCommand(GameEngine.CommandFactory)">
+            <summary>
+            The set command.
+            </summary>
+            <param name="commandFactory">The commandFactory.</param>
+            <returns>The <see cref="T:GameEngine.Commands.Command"/>.</returns>
+        </member>
+        <member name="M:GameEngine.IRender.ShowInvalidMoveMessage">
+            <summary>
+            Show invalid move message.
+            </summary>
+        </member>
+        <member name="M:GameEngine.IRender.ShowSuccessScreen">
+            <summary>
+            Show success screen.
+            </summary>
+        </member>
+        <member name="M:GameEngine.IRender.ShowFailScreen(System.Int32)">
+            <summary>
+            Show fail screen.
+            </summary>
+            <param name="countOfOpenField">The countOfOpenField.</param>
+        </member>
+        <member name="M:GameEngine.IRender.SetName">
+            <summary>
+            Set name...
+            </summary>
+            <returns>The <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:GameEngine.IRender.ShowHighScore(GameEngine.Statistic.IStatistic)">
+            <summary>
+            Show high score.
+            </summary>
+            <param name="statistic">The statistic.</param>
+        </member>
+        <member name="M:GameEngine.IRender.Exit">
+            <summary>
+            The exit...
+            </summary>
+        </member>
+    </members>
+</doc>
