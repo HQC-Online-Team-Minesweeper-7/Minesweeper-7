@@ -55,7 +55,7 @@ namespace GameEngine.Board
                             break;
                         }
 
-                        int randomNumber = chanceToMine.Next(0, 1);
+                        int randomNumber = chanceToMine.Next(0, 2);
                         if (randomNumber == 1)
                         {
                             this.Board[rowIndex, columnIndex] = fieldFactory.GetField(Field.Field.MINE_CONTENT);
@@ -69,7 +69,7 @@ namespace GameEngine.Board
             {
                 for (int columnIndex = 0; columnIndex < this.ColumnCount; columnIndex++)
                 {
-                    if (this.Board[rowIndex, columnIndex].Field.IsMine)
+                    if (this.Board[rowIndex, columnIndex] != null)
                     {
                         continue;
                     }
@@ -98,7 +98,9 @@ namespace GameEngine.Board
                     continue;
                 }
 
-                if (this.Board[currentNeighbourRow, currentNeighbourCol].Field.IsMine)
+                var field = this.Board[currentNeighbourRow, currentNeighbourCol];
+
+                if (field != null && field.IsMine)
                 {
                     minesCount++;
                 }

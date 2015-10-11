@@ -4,12 +4,12 @@
 
     class StatisticStorageDummy : IStatisticStorage
     {
-        public IStatistic Restore(IPlayerMementoStorage playerMementoStorage)
+        public IStatistic Restore()
         {
             return new Statistic();
         }
 
-        public void Save(IStatistic statistic, IPlayerMementoStorage playerMementoStorage)
+        public void Save(IStatistic statistic)
         {
         }
     }
