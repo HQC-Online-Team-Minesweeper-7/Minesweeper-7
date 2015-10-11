@@ -4,7 +4,7 @@
 
     public interface IStatisticStorage
     {
-        void Save(IStatistic statistic, IPlayerMementoStorage playerMementoStorage);
-        IStatistic Restore(IPlayerMementoStorage playerMementoStorage);
+        void Save(IStatistic statistic);
+        IStatistic Restore();
     }
 }

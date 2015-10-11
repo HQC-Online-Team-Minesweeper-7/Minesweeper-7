@@ -58,6 +58,21 @@ namespace GameEngine.Board
             }
         }
 
+        public bool IsCorrectPosition(int x, int y)
+        {
+            if (x < 0 || this.ColumnCount - 1 < x)
+            {
+                return false;
+            }
+
+            if (y < 0 || this.ColumnCount - 1 < y)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public IEnumerator<IBoardRow> GetEnumerator()
         {
             foreach (var row in this.rows)

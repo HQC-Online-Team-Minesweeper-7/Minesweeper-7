@@ -8,6 +8,7 @@
         public StartState(Engine engine)
             :base(engine)
         {
+            base.Engine.CountOfMove = 0;
         }
 
         public override void Play()
@@ -16,7 +17,8 @@
             BoardBuilder boardBuilder = new BoardBuilder(this.Engine.RowCount, this.Engine.ColumnCount);
             this.Engine.Board = boardBuilder.Generate(this.Engine.MineCount);
             this.Engine.Render.ShowBoard(this.Engine.Board);
-            this.Engine.Render.SetCommand(this.Engine.CommandFactory);
+            var command = this.Engine.Render.SetCommand(this.Engine.CommandFactory);
+            command.Execute();
         }
     }
 }

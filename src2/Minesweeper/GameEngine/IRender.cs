@@ -16,7 +16,7 @@ namespace GameEngine
 
         void ShowSuccessScreen();
 
-        void ShowFailScreen();
+        void ShowFailScreen(int countOfOpenField);
 
         string SetName();
 

@@ -17,24 +17,33 @@ namespace GameEngine.State
         public override void Play()
         {
             var board = this.Engine.Board;
-            var field = board[this.X, this.Y];
-            field.IsView = true;
+            var render = this.Engine.Render;
 
-            if (field.IsMine)
+            if (board.IsCorrectPosition(this.X, this.Y))
             {
-                this.Engine.State = new FailState(Engine);
-                this.Engine.State.Play();
-            }
-            else if(board.IsAllView)
-            {
-                this.Engine.State = new SuccessState(Engine);
-                this.Engine.State.Play();
+                var field = board[this.X, this.Y];
+                field.IsView = true;
+
+                if (field.IsMine)
+                {
+                    base.Engine.State = new FailState(Engine);
+                    base.Engine.Play();
+                }
+                else if (board.IsAllView)
+                {
+                    base.Engine.State = new SuccessState(Engine);
+                    base.Engine.Play();
+                }
             }
             else
             {
-                this.Engine.Render.ShowBoard(this.Engine.Board);
-                this.Engine.Render.SetCommand(this.Engine.CommandFactory);
+                render.ShowInvalidMoveMessage();
             }
+
+            base.Engine.CountOfMove++;
+            render.ShowBoard(this.Engine.Board);
+            var command = render.SetCommand(this.Engine.CommandFactory);
+            command.Execute();
         }
     }
 }

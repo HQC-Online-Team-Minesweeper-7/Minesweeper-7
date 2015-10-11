@@ -8,7 +8,7 @@
 
         public FieldWrapper(Field field)
         {
-            if(Field == null)
+            if(field == null)
             {
                 throw new ArgumentNullException("field");
             }

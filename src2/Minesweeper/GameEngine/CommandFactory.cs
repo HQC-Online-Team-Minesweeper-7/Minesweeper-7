@@ -31,5 +31,10 @@
         {
             return new MoveCommand(this.Engine, x, y);
         }
+
+        public Command CreateShowStatistiCommand()
+        {
+            return new ShowStatisticCommand(this.Engine);
+        }
     }
 }
