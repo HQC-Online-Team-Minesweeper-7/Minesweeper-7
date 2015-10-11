@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEngine", "GameEngine\Ga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMinesweeper", "ConsoleMinesweeper\ConsoleMinesweeper.csproj", "{56998024-6874-4CA6-B645-7C7E25566928}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Tests", "Minesweeper.Tests\Minesweeper.Tests.csproj", "{88012483-EDFB-4535-94B2-FCDFF58963AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{56998024-6874-4CA6-B645-7C7E25566928}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56998024-6874-4CA6-B645-7C7E25566928}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56998024-6874-4CA6-B645-7C7E25566928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88012483-EDFB-4535-94B2-FCDFF58963AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88012483-EDFB-4535-94B2-FCDFF58963AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88012483-EDFB-4535-94B2-FCDFF58963AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88012483-EDFB-4535-94B2-FCDFF58963AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
