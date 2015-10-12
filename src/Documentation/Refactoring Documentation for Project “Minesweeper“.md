@@ -57,15 +57,21 @@
 
 ### Using disign Patterns
 
-*	In class IStatisticFactory - Abstract factory
+*	In class IStatisticFactory - Abstract factory Design Pattern
 
 ![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/abstract.gif " Abstract factory Design Pattern UML Diagram")
-*	In class Command - Command
+*	In class Command - Command Design Pattern
 
 ![alt text](	https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/command.gif " Command Design Pattern UML Diagram")
-*	In class Engine - Façade
-*	In class Player - Memento
-*	In class IStatistic и IComparer<IPlayer> - Bridge
+*	In class Engine - Façade Design Pattern
+
+![alt text](	https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/facade.gif " Façade Design Pattern UML Diagram")
+*	In class Player - Memento Design Pattern
+	
+![alt text](	https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/memento.gif " Memento Design Pattern UML Diagram")
+*	In class IStatistic и IComparer<IPlayer> - Bridge Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/bridge.gif " Bridge Design Pattern UML Diagram")
 *	In class State- State
 *	In class render - Singleton
 *	In class BoardBuilder - Builder
