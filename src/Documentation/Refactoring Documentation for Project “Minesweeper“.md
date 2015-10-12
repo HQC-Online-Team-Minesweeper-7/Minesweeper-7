@@ -72,11 +72,21 @@
 *	In class IStatistic и IComparer<IPlayer> - Bridge Design Pattern
 	
 ![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/bridge.gif " Bridge Design Pattern UML Diagram")
-*	In class State- State
-*	In class render - Singleton
-*	In class BoardBuilder - Builder
-*	In class FieldFactory - Flyweight
-*	In class Board - Iterator
+*	In class State- State Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/state.gif " State Design Pattern UML Diagram")
+*	In class render - Singleton Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/singleton.gif " Singleton Design Pattern UML Diagram")
+*	In class BoardBuilder - Builder  Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/builder.gif " Builder Design Pattern UML Diagram")
+*	In class FieldFactory - Flyweight Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/flyweight.gif " Flyweight Design Pattern UML Diagram")
+*	In class Board - Iterator Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/iterator.gif " Iterator Design Pattern UML Diagram")
 
  ```
     namespace Minesweeper.GameModel.Board.Field
