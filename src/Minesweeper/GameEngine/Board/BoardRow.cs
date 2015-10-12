@@ -36,11 +36,6 @@ namespace GameEngine.Board
         /// <param name="countOfColumn">The count of column.</param>
         public BoardRow(int countOfColumn)
         {
-            if (countOfColumn < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(countOfColumn), "count of column is invalid");
-            }
-
             this.CountOfColumn = countOfColumn;
             this.row = new FieldWrapper[this.CountOfColumn];
         }

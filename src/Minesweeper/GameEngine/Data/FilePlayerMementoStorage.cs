@@ -13,7 +13,7 @@ namespace GameEngine.Data
     using System.Collections.Generic;
     using System.IO;
     using GameEngine.Statistic.Player;
-
+    using Validator;
     /// <summary>
     /// The player memento storage.
     /// </summary>
@@ -30,10 +30,7 @@ namespace GameEngine.Data
         /// <param name="filename">The file name.</param>
         public FilePlayerMementoStorage(string filename)
         {
-            if (string.IsNullOrWhiteSpace(filename))
-            {
-                throw new ArgumentException("invalid filename");
-            }
+            Validator.CheckIfNullOrWhiteSpace(filename);
 
             this.Filename = filename;
         }

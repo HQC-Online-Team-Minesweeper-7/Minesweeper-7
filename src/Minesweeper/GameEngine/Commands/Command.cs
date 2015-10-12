@@ -9,7 +9,7 @@
 namespace GameEngine.Commands
 {
     using System;
-
+    using Validator;
     /// <summary>
     /// The commands.
     /// </summary>
@@ -26,10 +26,7 @@ namespace GameEngine.Commands
         /// <param name="engine">The engine.</param>
         public Command(Engine engine)
         {
-            if (engine == null)
-            {
-                throw new ArgumentNullException(nameof(engine));
-            }
+            Validator.CheckIfNull(engine, nameof(engine));
 
             this.Engine = engine;
         }

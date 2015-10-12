@@ -13,7 +13,7 @@ namespace GameEngine.Statistic
     using System.Collections.Generic;
     using System.Linq;
     using GameEngine.Statistic.Player;
-
+    using Validator;
     /// <summary>
     /// The statistic.
     /// </summary>
@@ -59,10 +59,8 @@ namespace GameEngine.Statistic
 
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException(nameof(value), "comparer");
-                }
+
+                Validator.CheckIfNull(value, "comparer");
 
                 if (this.backComparer != value)
                 {
@@ -79,10 +77,7 @@ namespace GameEngine.Statistic
         /// <param name="player">The player.</param>
         public void Add(IPlayer player)
         {
-            if (player == null)
-            {
-                throw new ArgumentNullException(nameof(player));
-            }
+            Validator.CheckIfNull(player, nameof(player));
 
             this.Players.Add(player);
             this.Players.Sort(this.BackComparer);
@@ -94,10 +89,7 @@ namespace GameEngine.Statistic
         /// <param name="player">The player.</param>
         public void Remove(IPlayer player)
         {
-            if (player == null)
-            {
-                throw new ArgumentNullException(nameof(player));
-            }
+            Validator.CheckIfNull(player, nameof(player));
 
             this.Players.Remove(player);
         }

@@ -12,27 +12,15 @@ namespace GameEngine.Board
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-
+    using Validator;
     using Field;
 
-    /// <summary>
-    /// The board.
-    /// </summary>
     public class Board : IBoard
     {
-        /// <summary>
-        /// The RowCount.
-        /// </summary>
         public readonly int RowCount;
 
-        /// <summary>
-        /// The ColumnCount.
-        /// </summary>
         public readonly int ColumnCount;
 
-        /// <summary>
-        /// The board row.
-        /// </summary>
         private BoardRow[] rows;
 
         /// <summary>
@@ -42,15 +30,9 @@ namespace GameEngine.Board
         /// <param name="columnCount">The column counter.</param>
         public Board(int rowCount, int columnCount)
         {
-            if (rowCount < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(rowCount));
-            }
+            Validator.CheckIfSmallerThanOne(rowCount, nameof(rowCount));
 
-            if (columnCount < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(columnCount));
-            }
+            Validator.CheckIfSmallerThanOne(columnCount, nameof(columnCount));
 
             this.RowCount = rowCount;
             this.ColumnCount = columnCount;

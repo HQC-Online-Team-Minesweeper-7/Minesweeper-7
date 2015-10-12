@@ -39,16 +39,7 @@ namespace GameEngine.Board
         /// <param name="columnCount">The column counter.</param>
         public BoardBuilder(int rowCount, int columnCount)
         {
-            if (rowCount < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(rowCount));
-            }
-
-            if (columnCount < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(columnCount));
-            }
-
+            
             this.RowCount = rowCount;
             this.ColumnCount = columnCount;
 

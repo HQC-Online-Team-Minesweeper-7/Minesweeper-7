@@ -9,7 +9,7 @@
 namespace GameEngine.Board.Field
 {
     using System;
-
+    using Validator;
     /// <summary>
     /// The field wrapper.
     /// </summary>
@@ -26,11 +26,8 @@ namespace GameEngine.Board.Field
         /// <param name="field">The field.</param>
         public FieldWrapper(Field field)
         {
-            if (field == null)
-            {
-                throw new ArgumentNullException(nameof(field));
-            }
-
+            Validator.CheckIfNull(field, nameof(field));
+            
             this.Field = field;
             this.IsView = false;
         }

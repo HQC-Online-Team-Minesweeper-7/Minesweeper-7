@@ -9,13 +9,13 @@
 namespace GameEngine.Statistic
 {
     using System;
-
+    using Validator;
     using Data;
 
     /// <summary>
     /// The statistic storage.
     /// </summary>
-    internal class StatisticStorage : IStatisticStorage
+    public class StatisticStorage : IStatisticStorage
     {
         /// <summary>
         /// The factory.
@@ -34,15 +34,9 @@ namespace GameEngine.Statistic
         /// <param name="playerMementoStorage">The playerMementoStorage.</param>
         public StatisticStorage(IStatisticFactory factory, IPlayerMementoStorage playerMementoStorage)
         {
-            if (factory == null)
-            {
-                throw new ArgumentNullException(nameof(factory));
-            }
+            Validator.CheckIfNull(factory, nameof(factory));
 
-            if (playerMementoStorage == null)
-            {
-                throw new ArgumentNullException(nameof(playerMementoStorage));
-            }
+            Validator.CheckIfNull(playerMementoStorage, nameof(playerMementoStorage));
 
             this.Factory = factory;
             this.PlayerMementoStorage = playerMementoStorage;

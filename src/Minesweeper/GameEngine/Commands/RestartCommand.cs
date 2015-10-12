@@ -15,7 +15,7 @@ namespace GameEngine.Commands
     /// <summary>
     /// The restart command.
     /// </summary>
-    internal class RestartCommand : Command
+    public class RestartCommand : Command
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RestartCommand"/> class.

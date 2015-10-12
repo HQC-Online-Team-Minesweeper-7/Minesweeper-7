@@ -18,7 +18,7 @@ namespace GameEngine.Board.Field
         /// <summary>
         /// The fields.
         /// </summary>
-        private Dictionary<int, Field> Fields = new Dictionary<int, Field>();
+        private Dictionary<int, Field> fields = new Dictionary<int, Field>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldFactory"/> class.
@@ -29,11 +29,11 @@ namespace GameEngine.Board.Field
         {
             Field field;
 
-            if (!this.Fields.TryGetValue(content, out field))
+            if (!this.fields.TryGetValue(content, out field))
             {
                 field = new Field(content);
 
-                this.Fields.Add(content, field);
+                this.fields.Add(content, field);
             }
 
             return new FieldWrapper(field);

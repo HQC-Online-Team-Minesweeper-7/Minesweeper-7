@@ -16,7 +16,7 @@ namespace GameEngine.State
     /// <summary>
     /// The start state.
     /// </summary>
-    internal class StartState : State
+    public class StartState : State
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StartState"/> class.

@@ -9,6 +9,7 @@
 namespace GameEngine.Board.Field
 {
     using System;
+    using Validator;
 
     /// <summary>
     /// The console field.
@@ -19,18 +20,13 @@ namespace GameEngine.Board.Field
         /// The constants.
         /// </summary>
         public const int MineContent = -1;
-
+        private int content;
         /// <summary>
         /// Initializes a new instance of the <see cref="Field"/> class.
         /// </summary>
         /// <param name="content">The field content.</param>
         public Field(int content)
         {
-            if (content < MineContent || 8 < content)
-            {
-                throw new ArgumentOutOfRangeException(nameof(content), "content is invalid");
-            }
-
             this.Content = content;
         }
 
@@ -38,12 +34,22 @@ namespace GameEngine.Board.Field
         /// Gets a value indicating whether is content.
         /// </summary>
         /// <value>The content.</value>
-        public int Content { get; private set; }
+        public int Content
+        {
+            get
+            {
+                return this.content;
+            }
 
-        /// <summary>
-        /// Gets a value indicating whether is mine.
-        /// </summary>
-        /// <value>Gets the mine.</value>
+            private set
+            {
+                Validator.CheckIfFieldContentValueIsValid(value,
+                    String.Format(nameof(value), "content is invalid"));
+
+                this.content = value;
+            }
+        }
+
         public bool IsMine
         {
             get

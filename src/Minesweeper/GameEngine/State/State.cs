@@ -9,11 +9,11 @@
 namespace GameEngine.State
 {
     using System;
-
+    using Validator;
     /// <summary>
     /// The state.
     /// </summary>
-    internal abstract class State
+    public abstract class State
     {
         /// <summary>
         /// The engine.
@@ -26,10 +26,7 @@ namespace GameEngine.State
         /// <param name="engine">The engine.</param>
         public State(Engine engine)
         {
-            if (engine == null)
-            {
-                throw new ArgumentNullException(nameof(engine));
-            }
+            Validator.CheckIfNull(engine, nameof(engine));
 
             this.Engine = engine;
         }

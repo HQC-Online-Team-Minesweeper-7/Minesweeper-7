@@ -10,7 +10,7 @@ namespace GameEngine
 {
     using System;
     using Commands;
-
+    
     /// <summary>
     /// The command factory.
     /// </summary>
@@ -25,12 +25,9 @@ namespace GameEngine
         /// Initializes a new instance of the <see cref="CommandFactory"/> class.
         /// </summary>
         /// <param name="engine">The engine.</param>
-        internal CommandFactory(Engine engine)
+        public CommandFactory(Engine engine)
         {
-            if (engine == null)
-            {
-                throw new ArgumentNullException(nameof(engine));
-            }
+            Validator.Validator.CheckIfNull(engine, nameof(engine));
 
             this.engine = engine;
         }
