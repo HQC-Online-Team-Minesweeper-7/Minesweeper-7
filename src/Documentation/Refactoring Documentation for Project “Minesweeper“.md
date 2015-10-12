@@ -1,21 +1,92 @@
-## Refactoring Documentation for Project ìMinesweeperî
+## Refactoring Documentation for Project ‚ÄúMinesweeper‚Äù
 
-###  1.  Redesigned the project structure: Team ìMinesweeper - 7î
+###  1.  Redesigned the project structure: Team ‚ÄúMinesweeper - 7‚Äù
 *   Renamed the project to Minesweeper
-*    Renamed the namespace Igrata_Minichki to Minesweeper
-*    Renamed the main class Telerik to MainesweeperEntryPoint
-*   Add folder GameModel
-*   Add folder Board
-*   Add folder Field
+*   Renamed the namespace Igrata_Minichki to ConsoleMinesweeper
+*   Renamed the main class Telerik to Program in ConsoleMinesweeper
+*   Add ConsoleApplication with name GameEngine
+*   Add folder Board in GameEngine
+*   Add folder Commands in GameEngine
+*   Add folder Data in GameEngine
+*   Add folder State in GameEngine
+*   Add folder Statistic in GameEngine
+*   Add folder Field in folder Board
+*   Add class ConsoleRenderSingleton.cs in ConsoleMinesweeper
+*   Add class FieldVisualator.cs in ConsoleMinesweeper
 *   Add class Field.cs
-*   Add folder Util
-*   Add class Constants.cs
-*   Add folder Interfaces
-*   Add interface IRender.cs
-*   Add folder ConsoleGame
-*   Add class ConsoleRenderer.cs
-*   Add class ConsoleMinesweeperEngine.cs
-*   Move all logic in class ConsoleMinesweeperEngine.cs
+*   Add class FieldFactory.cs
+*   Add class FieldWrapper.cs
+*   Add interface IField.cs
+*   Add class Board.cs
+*   Add class BoardBilder.cs
+*   Add class BoardRow.cs
+*   Add interface IBoard.cs
+*   Add interface IBoardRow.cs
+*   Add class Command.cs
+*   Add class ExitCommand.cs
+*   Add class MoveCommand.cs
+*   Add class RestartCommand.cs
+*   Add class ShowStatisticCommand.cs
+*   Add class FilePlayerMementoStorage.cs
+*   Add interface IPlayerMementoStorage.cd 
+*   Add class ExitState.cs
+*   Add class FailState.cs
+*   Add class MoveState.cs
+*   Add class ShowStatisticState.cs
+*   Add class StartState.cs
+*   Add class State.cs
+*   Add class SuccessState.cs
+*   Add interface IPlayer.cs 
+*   Add class Player.cs
+*   Add class PlayerBaskwardCompare.cs
+*   Add class PayerCaretaker.cs
+*   Add class PlayerMemento.cs
+*   Add interface IStatistic.cs 
+*   Add interface IStatisticFactory.cs
+*   Add interface IStatisticStorage.cs 
+*   Add class Statistic.cs
+*   Add class StatisticFactory.cs
+*   Add class StatisticStorage.cs
+*   Add class StatisticStorageDummy.cs
+*   Add class CommandFactory.cs
+*   Add class Engine.cs
+*   Add inerface IRender.cs
+*   Move all logic in classes
+*   Add Unit Test Project - Minesweeper.Tests
+
+
+### Using disign Patterns
+
+*	In class IStatisticFactory - Abstract factory Design Pattern
+
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/abstract.gif " Abstract factory Design Pattern UML Diagram")
+*	In class Command - Command Design Pattern
+
+![alt text](	https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/command.gif " Command Design Pattern UML Diagram")
+*	In class Engine - Fa√ßade Design Pattern
+
+![alt text](	https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/facade.gif " Fa√ßade Design Pattern UML Diagram")
+*	In class Player - Memento Design Pattern
+	
+![alt text](	https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/memento.gif " Memento Design Pattern UML Diagram")
+*	In class IStatistic –∏ IComparer<IPlayer> - Bridge Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/bridge.gif " Bridge Design Pattern UML Diagram")
+*	In class State- State Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/state.gif " State Design Pattern UML Diagram")
+*	In class render - Singleton Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/singleton.gif " Singleton Design Pattern UML Diagram")
+*	In class BoardBuilder - Builder  Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/builder.gif " Builder Design Pattern UML Diagram")
+*	In class FieldFactory - Flyweight Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/flyweight.gif " Flyweight Design Pattern UML Diagram")
+*	In class Board - Iterator Design Pattern
+	
+![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/iterator.gif " Iterator Design Pattern UML Diagram")
 
  ```
     namespace Minesweeper.GameModel.Board.Field
@@ -99,34 +170,31 @@ namespace Minesweeper.GameModel.Board.Field
 *   Create IScoreBoard.cs
 *   Create Scoreboard.cs
 *   Extracted each class in a separate file with a good name: GameMinesweeper.cs, Dashboard.cs, Panel.cs, Commands.cs, Person.cs.
-Ö
+‚Ä¶
 ### Reformatted the source code:
 
 1.  Reformatted class Telerik.cs.
-*   Remove blank spaces and rows
-*   Remove bad coments
+2.  Remove blank spaces and rows
+3.  Remove bad coments
 ```
     // taiz igra sym ya igral na 8 godinki kato biah u lqlq stefka na komputera v bibliotekata
 ```
-*   Remove 'usings'
+4.   Remove 'usings'
 ```    
     using System.Linq;
     using System.Text;
 ```
-*   Insert class access modifier.
-*   Insert fields name , score.
-*   Move constructor before properties.
-*   Inserted empty lines between the properties.
-
-2.  Reformatted class Dashboard.cs.
-
-3.  Move using derectives in namespase.
-4.  Put { and } after all conditionals and if statemants
-5.  Renamed method Dobavi to EnterPlayerName.
-7.  Move constructor before properties.
-8.  Inserted empty lines between the all methods.
-
-9.  Remove the lines and spaces containing several statements into several simple lines, e.g.:
+5.   Insert class access modifier.
+6.   Insert fields name , score.
+7.   Move constructor before properties.
+8.   Inserted empty lines between the properties.
+9.  Reformatted class Dashboard.cs.
+10.  Move using derectives in namespase.
+11.  Put { and } after all conditionals and if statemants
+12.  Renamed method Dobavi to EnterPlayerName.
+13.  Move constructor before properties.
+14.  Inserted empty lines between the all methods.
+15.  Remove the lines and spaces containing several statements into several simple lines, e.g.:
 
 >   Before:
 
@@ -331,25 +399,15 @@ if (currentNeighbourRow < 0
 *   Formatted the curly braces { and } according to the best practices for the C# language.
 *   Put { and } after all conditionals and loops (when missing).
 *   Character casing: variables and fields made camelCase; types and methods made PascalCase.
-*   Formatted all other elements of the source code according to the best practices introduced in the course ìHigh-Quality Programming Codeî.
-Ö
+*   Formatted all other elements of the source code according to the best practices introduced in the course ‚ÄúHigh-Quality Programming Code‚Äù.
+‚Ä¶
 ### Renamed variables:
-*   In class ConsoleMineeswiperEngine: matrica to matrix
-*   In class ConsoleMineeswiperEngine: chenge row and col in matrix with Constantc.MatrixRow and Constants.MatrixColumn
-*   In class ConsoleMineeswiperEngine: chenge '*'with Constantc.MinesSymbol
+*   matrica to matrix
 *   In class ConsoleMinesweeperEngine remove all badd comments
-*   In class Fifteen: number to numberOfMoves.
-*   In Main(string\[\] args): g to gameFifteen.
-*   Introduced constants:
-*   GAME\_BOARD\_SIZE = 4
-*   SCORE\_BOARD\_SIZE = 5.
-*   Extracted the method GenerateRandomGame() from the method Main().
-*   Introduced class ScoreBoard and moved all related functionality in it.
-*   Moved method GenerateRandomNumber(int start, int end) to separate class RandomUtils.
-Ö
+‚Ä¶
 
 ### Renamed methods
-*   Rename method NovaIgra() to Start()
+*   Rename method NovaIgra() to Play()
 *   Rename method DaiRezultati() to Scoreboard()
 *   Renamed the method procheti to Commands
 
