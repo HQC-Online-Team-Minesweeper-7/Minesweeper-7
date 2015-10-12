@@ -58,7 +58,7 @@
 ### Using disign Patterns
 
 *	In class IStatisticFactory - Abstract factory
-### Клас диаграма:
+ * Клас диаграма:
 ![alt text](https://raw.githubusercontent.com/HQC-Online-Team-Minesweeper-7/Minesweeper-7/master/src/Documentation/Picture/abstract.gif " Abstract factory Design Pattern UML Diagram")
 *	In class Command - Command
 *	In class Engine - Façade
